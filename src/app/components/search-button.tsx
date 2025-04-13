@@ -5,7 +5,7 @@ import { allPosts } from "contentlayer/generated";
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import { type DialogProps } from "@radix-ui/react-dialog";
-import { Circle, File, Laptop, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { House, CircleUserRound, Megaphone, BookMarked } from "lucide-react";
 
@@ -18,7 +18,6 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "@/components/ui/command";
 
 export function Search({ ...props }: DialogProps) {

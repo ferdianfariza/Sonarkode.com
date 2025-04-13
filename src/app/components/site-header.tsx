@@ -1,13 +1,9 @@
-"use client"
+"use client";
 
-import {Search} from './search-button';
-import SocialShare from './social-share';
-import {ThemeSwitcher} from './theme-switcher';
-import { Icons } from "./logo";
-import Link from 'next/link';
-import Logo  from './drawer';
-
-
+import { Search } from "./search-button";
+import SocialShare from "./social-share";
+import { ThemeSwitcher } from "./theme-switcher";
+import Logo from "./drawer";
 
 export function SiteHeader() {
   return (
@@ -20,7 +16,7 @@ export function SiteHeader() {
               <div className="flex-1 md:flex-none">
                 <Search />
               </div>
-              
+
               <div className="flex items-center gap-1">
                 <SocialShare />
                 <ThemeSwitcher />
@@ -29,7 +25,6 @@ export function SiteHeader() {
           </div>
         </div>
       </nav>
-      
     </header>
-  )
+  );
 }

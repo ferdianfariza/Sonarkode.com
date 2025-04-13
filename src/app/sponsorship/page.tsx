@@ -5,7 +5,7 @@ export default function Sponsorship() {
       <p className="text-lg">
         We are looking for sponsors to support our project.
       </p>
-      <p className="text-lg">If you're interested, please contact us!</p>
+      <p className="text-lg">If you are interested, please contact us!</p>
     </div>
   );
 }
