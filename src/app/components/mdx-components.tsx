@@ -7,6 +7,70 @@ import { Check, Copy,ArrowUpRight } from 'lucide-react';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
 
+const CodeBlock: React.FC<React.HTMLAttributes<HTMLElement> & { className?: string }> = ({
+  className,
+  children,
+  ...props
+}) => {
+  const [copied, setCopied] = useState(false);
+  const isCodeBlock = className?.includes('language-');
+  const codeContent = typeof children === 'string' ? children : React.Children.toArray(children).join('');
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(codeContent.trim());
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  if (!isCodeBlock) {
+    return (
+      <div className="flex-1 my-6 rounded-sm overflow-hidden border border-ui bg-zinc-50 dark:bg-background">
+        <code
+          className={`${GeistMono.className} block text-[12px] leading-normal px-4 py-2 whitespace-pre-wrap break-words text-zinc-800 dark:text-zinc-200`}
+          {...props}
+        >
+          {children}
+        </code>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`${GeistSans.className} my-6 rounded-sm overflow-hidden border border-ui bg-white dark:bg-zinc-900`}>
+      <div className="flex items-center justify-between px-4 py-2 bg-zinc-50 dark:bg-background border-b border-ui">
+        <span className="text-[12px] text-zinc-600 dark:text-zinc-400">
+          {className?.replace('language-', '') || 'code'}
+        </span>
+        <button
+          onClick={handleCopy}
+          className="flex items-center gap-1 text-[12px] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
+          aria-label="Copy code"
+        >
+          {copied ? (
+            <>
+              <Check size={14} />
+              <span>Copied!</span>
+            </>
+          ) : (
+            <>
+              <Copy size={14} />
+              <span>Copy</span>
+            </>
+          )}
+        </button>
+      </div>
+      <pre className="flex-1">
+        <code
+          className={`${GeistMono.className} block text-[12px] leading-normal px-4 py-2 whitespace-pre-wrap break-words text-ui`}
+          {...props}
+        >
+          {children}
+        </code>
+      </pre>
+    </div>
+  );
+};
+
 const components = {
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1 className="mt-2 text-2xl font-bold tracking-tight " {...props} />
@@ -84,77 +148,7 @@ const components = {
     <hr className="mt-8 border-ui" {...props} />
   ),
 
-  code: ({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) => {
-    const [copied, setCopied] = useState(false);
-    const isCodeBlock = className?.includes('language-');
-    const codeContent = typeof children === 'string' ? children : React.Children.toArray(children).join('');
-    
-    const handleCopy = async () => {
-      await navigator.clipboard.writeText(codeContent.trim());
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    };
-
-    if (!isCodeBlock) {
-      return (
-        <div className="flex-1 my-6 rounded-sm overflow-hidden border border-ui bg-zinc-50 dark:bg-background">
-          
-          <code
-            className={`${GeistMono.className} block text-[12px] leading-normal px-4 py-2 whitespace-pre-wrap break-words text-zinc-800 dark:text-zinc-200`}
-            {...props}
-          >
-            {children}
-          </code>
-        </div>
-      );
-    }
-
-
-    return (
-      <div className={`${GeistSans.className} my-6 rounded-sm overflow-hidden border border-ui bg-white dark:bg-zinc-900`}>
-        
-        {/* Headier */}
-        <div className="flex items-center justify-between px-4 py-2 bg-zinc-50 dark:bg-background border-b border-ui
-">
-          
-          {/* title */}
-          <span className="text-[12px] text-zinc-600 dark:text-zinc-400">
-            {className?.replace('language-', '') || 'code'}
-          </span>
-
-          {/* button */}
-          <button
-            onClick={handleCopy}
-            className="flex items-center gap-1 text-[12px] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-            aria-label="Copy code"
-          >
-            {copied ? (
-              <>
-                <Check size={14} />
-                <span>Copied!</span>
-              </>
-            ) : (
-              <>
-                <Copy size={14} />
-                <span>Copy</span>
-              </>
-            )}
-          </button>
-        </div>
-
-        {/* Code content pre render */}
-        <pre className="flex-1">
-          <code
-            className={`${GeistMono.className} block text-[12px] leading-normal px-4 py-2 whitespace-pre-wrap break-words text-ui`}
-            {...props}
-          >
-            {children}
-          </code>
-        </pre>
-        
-      </div>
-    );
-  },
+  code: CodeBlock,
 };
 
 interface MdxProps {
