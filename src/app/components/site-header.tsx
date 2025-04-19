@@ -9,7 +9,7 @@ export function SiteHeader() {
   return (
     <header className="w-full top-0 sticky bg-background border-b border-ui">
       <nav>
-        <div className="mx-auto max-w-[1205px] px-4">
+        <div className="mx-auto max-w-[60rem] px-4 lg:px-0">
           <div className="h-14 flex items-center">
             <Logo />
             <div className="flex flex-1 gap-1 items-center md:justify-end">

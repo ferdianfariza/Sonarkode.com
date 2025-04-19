@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 export default function HomeFooter() {
   return (
     <footer className="py-10 mt-10 w-full border-t border-ui font-mono">
-      <div className="mx-auto w-full max-w-[1165px] px-4 lg:px-0 flex flex-col gap-10 lg:flex-row lg:justify-between">
+      <div className="mx-auto w-full max-w-[60rem] px-4 lg:px-0 flex flex-col gap-10 lg:flex-row lg:justify-between">
         {/* Left Terminal Info */}
         <div className="text-zinc-500 dark:text-zinc-400 space-y-1">
           <p className="text-[14px] whitespace-nowrap">
@@ -78,7 +78,7 @@ export default function HomeFooter() {
       </div>
 
       {/* Bottom Line */}
-      <div className="mt-6 px-4 lg:px-0 border-t border-ui pt-4 mx-auto w-full max-w-[1165px] flex flex-col sm:flex-row justify-between items-center text-[14px] text-zinc-500">
+      <div className="mt-6 px-4 lg:px-0 border-t border-ui pt-4 mx-auto w-full max-w-[60rem] flex flex-col sm:flex-row justify-between items-center text-[14px] text-zinc-500">
         <div>
           Made with {">"}_ by{" "}
           <span className="hover:text-blue-400">
