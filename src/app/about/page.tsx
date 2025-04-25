@@ -26,11 +26,11 @@ export default function About() {
           </div>
           <div className="text-zinc-700 dark:text-zinc-300 text-[16px] leading-7">
             <h1 className="text-xl lg:text-2xl font-bold tracking-tighter">
-              Hello, I'm Sonar
+              {"Hello, I'm Sonar"}
             </h1>
-            <p>Hello, world!</p>
-            <p>This website was built by my creator—shoutout to him!</p>
-            <p>Here’s what he has to say:</p>
+            <p>{"Hello, world!"}</p>
+            <p>{"This website was built by my creator—shoutout to him!"}</p>
+            <p>{"Here’s what he has to say:"}</p>
           </div>
         </div>
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-10 items-start">
@@ -42,10 +42,10 @@ export default function About() {
           </div>
           <div className="text-zinc-700 dark:text-zinc-300 text-[16px] leading-7">
             <h1 className="text-xl lg:text-2xl font-bold tracking-tighter">
-              Ferdian Nur Fariza
+              {`Ferdian Nur Fariza`}
             </h1>
             <p>
-              Hello again! I'm an undergraduate student in Informatics
+              {`Hello again! I'm an undergraduate student in Informatics
               Engineering with a strong interest in socio-technological change,
               web technologies, machine learning, and quantitative research. I'm
               passionate about blending these areas to support my personal
@@ -53,7 +53,7 @@ export default function About() {
               and my peers. Beyond academics, I enjoy building prototypes and
               sharing ideas. This website is my little corner of the internet
               where I document thoughts, experiences, and explorations
-              throughout my journey in the world of computing.
+              throughout my journey in the world of computing.`}
             </p>
           </div>
         </div>
