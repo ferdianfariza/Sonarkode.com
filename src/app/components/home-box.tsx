@@ -55,7 +55,7 @@ export default function HomeBox() {
             </p>
             <Link
               href={post.url}
-              className={`font-semibold dark:text-gray-100 tracking-tight hover:underline ${
+              className={`font-semibold dark:text-zinc-100 tracking-tight hover:underline ${
                 post.layout === "text"
                   ? "line-clamp-5 text-2xl md:text-3xl leading-10"
                   : "text-xl  line-clamp-3 leading-8"
@@ -63,7 +63,7 @@ export default function HomeBox() {
               {post.title}
             </Link>
             <p
-              className={`text-[15px] text-gray-600 dark:text-gray-400 leading-5  ${
+              className={`text-[15px] text-zinc-600 dark:text-zinc-400 leading-5  ${
                 post.layout === "text" ? "line-clamp-5" : "line-clamp-3"
               }`}>
               {post.summary}

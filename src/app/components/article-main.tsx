@@ -1,14 +1,12 @@
 "use client";
-import Mdx from '@/app/components/mdx-components';
-import { allPosts } from 'contentlayer/generated';
-import { useParams } from 'next/navigation';
-import {SiteHeader} from '@/app/components/site-header';
-import ArticleFooter from '@/app/components/article-footer';
-import ArticleReadMore from '@/app/components/article-readmore';
-import ArticleHeader from '@/app/components/article-header';
-import HomeFooter from '@/app/components/site-footer';
-
-
+import Mdx from "@/app/components/mdx-components";
+import { allPosts } from "contentlayer/generated";
+import { useParams } from "next/navigation";
+import { SiteHeader } from "@/app/components/site-header";
+import ArticleFooter from "@/app/components/article-footer";
+import ArticleReadMore from "@/app/components/article-readmore";
+import ArticleHeader from "@/app/components/article-header";
+import HomeFooter from "@/app/components/site-footer";
 
 export default function ArticleMain() {
   const params = useParams(); // ensure params dengan useParams
@@ -21,14 +19,14 @@ export default function ArticleMain() {
 
   return (
     <div>
-    <SiteHeader/>
-      <div className='py-8 mx-3 md:mx-auto max-w-2xl'>
-        <ArticleHeader/>
+      <SiteHeader />
+      <div className="py-8 mx-3 md:mx-auto max-w-2xl">
+        <ArticleHeader />
         <Mdx code={post.body.code} />
-        <ArticleFooter/>
-        <ArticleReadMore/>
+        <ArticleFooter />
+        <ArticleReadMore />
       </div>
-        <HomeFooter/>
+      <HomeFooter />
     </div>
   );
 }

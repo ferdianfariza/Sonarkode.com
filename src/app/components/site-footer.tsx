@@ -82,7 +82,7 @@ export default function HomeFooter() {
         <div>
           Made with {">"}_ by{" "}
           <span className="hover:text-blue-400">
-            <Link href="/">@ferdianfariza</Link>
+            <Link href="https://www.instagram.com/ferdianfariza/">@ferdianfariza</Link>
           </span>
         </div>
         <div>© {new Date().getFullYear()} Sonarkode Blog</div>
