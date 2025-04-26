@@ -1,8 +1,8 @@
-import { allPosts } from 'contentlayer/generated';
-import { compareDesc, format, parseISO } from 'date-fns';
-import { enUS } from 'date-fns/locale';
-import Link from 'next/link';
-import Image from 'next/image';
+import { allPosts } from "contentlayer/generated";
+import { compareDesc, format, parseISO } from "date-fns";
+import { enUS } from "date-fns/locale";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function HomeHero() {
   const posts = allPosts.sort((a, b) =>
@@ -15,7 +15,7 @@ export default function HomeHero() {
   }
 
   return (
-    <div className="w-full flex flex-col h-auto space-y-6 mt-3">
+    <div className="w-full flex flex-col h-auto mt-3">
       <div className="flex md:flex-row flex-col grow">
         {heroPost.image && (
           <Image
@@ -27,18 +27,15 @@ export default function HomeHero() {
             className="w-full h-auto md:min-w-[550px] object-cover rounded-sm border"
           />
         )}
-        <div className="flex flex-col space-y-4 ml-0 md:ml-10">
-          <p className="font-mono font-medium uppercase text-left text-blue-500   dark:text-blue-400  tracking-widest text-[12px] mt-6 md:mt-0">
-            <span className="font-semibold">
-              {heroPost.category}
-            </span>{" "}
-            - {heroPost.readtime}
+        <div className="flex flex-col space-y-3 ml-0 md:ml-10">
+          <p className="font-mono font-medium uppercase text-left text-blue-500   dark:text-blue-400  tracking-widest text-[12px] mt-3 md:mt-0">
+            <span className="font-semibold">{heroPost.category}</span>
+            <span className="hidden sm:inline "> - {heroPost.readtime}</span>
           </p>
 
           <Link
             href={heroPost.url}
-            className="font-semibold dark:text-zinc-100 text-3xl leading-10 tracking-tight hover:underline text-left line-clamp-3"
-          >
+            className="font-semibold dark:text-zinc-100 text-2xl md:text-3xl leading-8 md:leading-10 tracking-tight hover:underline text-left line-clamp-3">
             {heroPost.title}
           </Link>
 
@@ -48,9 +45,13 @@ export default function HomeHero() {
 
           <div className="text-[12px] font-mono font-medium uppercase tracking-wide text-zinc-600 dark:text-zinc-400 text-left mt-auto">
             <time dateTime={heroPost.date}>
-              {format(parseISO(heroPost.date), 'LLLL d, yyyy', { locale: enUS }).toUpperCase()}
+              {format(parseISO(heroPost.date), "LLLL d, yyyy", {
+                locale: enUS,
+              }).toUpperCase()}
             </time>
-            {' • '} {heroPost.author}
+            <span className="hidden sm:inline ">
+              {" • "} {heroPost.author}
+            </span>
           </div>
         </div>
       </div>

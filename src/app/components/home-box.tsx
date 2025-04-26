@@ -37,7 +37,7 @@ export default function HomeBox() {
         <div
           key={post._id}
           className="w-full flex flex-col justify-between h-auto md:h-[580px] border-b border-ui">
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-3">
             {post.layout === "image" && (
               <Image
                 src={post.image || "/fallback-image.jpg"}
@@ -50,8 +50,8 @@ export default function HomeBox() {
               />
             )}
             <p className="font-mono font-medium uppercase tracking-widest text-blue-500   dark:text-blue-400  text-[12px]">
-              <span className="font-semibold">{post.category}</span> -{" "}
-              {post.readtime}
+              <span className="font-semibold">{post.category}</span>
+              <span className="hidden sm:inline"> - {post.readtime}</span>
             </p>
             <Link
               href={post.url}
@@ -76,7 +76,9 @@ export default function HomeBox() {
                 locale: enUS,
               }).toUpperCase()}
             </time>
-            {" • "} {post.author}
+            <span className="hidden sm:inline ">
+              {" • "} {post.author}
+            </span>
           </p>
         </div>
       ))}

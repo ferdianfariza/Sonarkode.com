@@ -35,11 +35,11 @@ export default function HomeFeatured() {
 
   return (
     <section className="w-full max-w-screen-xl mx-auto px-0">
-      <hr className="w-full border-zinc-200 dark:border-zinc-800 mb-5 mx-auto" />
+      <hr className="w-full border-ui mb-5 mx-auto" />
 
       <div className="w-auto flex flex-col md:flex-row md:items-stretch">
         {/* --- Column 1: Post 2 --- */}
-        <div className="flex-1 min-w-0 py-3 md:py-0 flex flex-col">
+        <div className="flex-1 min-w-0 py-1 md:py-0 flex flex-col">
           <PostFeatureItem post={post2} />
         </div>
 
@@ -48,11 +48,11 @@ export default function HomeFeatured() {
           {/* Vertical Separator (md+) */}
           <Separator
             orientation="vertical"
-            className="hidden md:block h-auto min-h-[80px] mx-4 border-zinc-300 dark:border-zinc-800"
+            className="hidden md:block h-auto min-h-[80px] mx-4 border-ui"
           />
           <Separator
             orientation="horizontal"
-            className="block md:hidden w-full my-6"
+            className="block md:hidden w-full my-3"
           />
         </>
 
@@ -65,11 +65,11 @@ export default function HomeFeatured() {
         <>
           <Separator
             orientation="vertical"
-            className="hidden md:block h-auto min-h-[80px] mx-4 border-zinc-300 dark:border-zinc-800"
+            className="hidden md:block h-auto min-h-[80px] mx-4 border-ui"
           />
           <Separator
             orientation="horizontal"
-            className="block md:hidden w-full my-6"
+            className="block md:hidden w-full my-3"
           />
         </>
 
@@ -79,7 +79,7 @@ export default function HomeFeatured() {
         </div>
       </div>
 
-      <hr className="w-full border-t border-zinc-200 dark:border-zinc-800 mt-5 mx-auto" />
+      <hr className="w-full border-t border-ui mt-5 mx-auto" />
     </section>
   );
 }
