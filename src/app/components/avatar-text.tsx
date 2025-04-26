@@ -4,13 +4,6 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 
 export default function AvatarText() {
-  const params = useParams(); // ensure params dengan useParams
-  const slug = params.slug as string; // ensure slug as a string
-  const post = allPosts.find((post) => post._raw.flattenedPath === slug);
-
-  if (!post?.body.code) {
-    return <div>No post here!</div>;
-  }
   return (
     <Link
       href="https://www.instagram.com/ferdianfariza/"
@@ -22,7 +15,7 @@ export default function AvatarText() {
         <AvatarFallback>FF</AvatarFallback>
       </Avatar>
       <div className="text-[15px] gap-y-[1px]">
-        <p className="font-semibold">{post.author}</p>
+        <p className="font-semibold">Ferdian Fariza</p>
         <p className="font-regular text-[14px]">@ferdianfariza</p>
       </div>
     </Link>

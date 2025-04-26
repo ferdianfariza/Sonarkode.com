@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { compareDesc, format, parseISO } from "date-fns";
 import { enUS } from "date-fns/locale";
+import { Feather } from "lucide-react";
 
 // Helper Component (remains the same)
 const PostFeatureItem = ({ post }: { post: Post }) => {
@@ -13,13 +14,14 @@ const PostFeatureItem = ({ post }: { post: Post }) => {
         className="font-semibold dark:text-zinc-100 text-base md:text-sm tracking-tight hover:underline block">
         <span className="w-full line-clamp-2">{post.title}</span>
       </Link>
-      <p className="text-[12px] font-mono  font-medium uppercase tracking-wide text-zinc-600 dark:text-zinc-400 mt-2">
+      <div className="hidden md:flex gap-1 items-center text-[12px] font-normal tracking-wide text-zinc-500 dark:text-zinc-400">
+        <Feather size="15" />
         <time dateTime={post.date}>
-          {format(parseISO(post.date), "LLL d, yyyy", {
+          {format(parseISO(post.date), "LLLL d, yyyy", {
             locale: enUS,
-          }).toUpperCase()}
+          })}
         </time>
-      </p>
+      </div>
     </div>
   );
 };

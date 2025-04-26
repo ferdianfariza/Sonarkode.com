@@ -25,8 +25,10 @@ export default function ArticleHeader() {
       {/* Header */}
       <div>
         {/* Category */}
-        <p className="font-semibold tracking-widest text-xs text-blue-500  dark:text-blue-400 uppercase">
-          {post.category}
+        <p className="font-mono font-semibold uppercase tracking-widest text-blue-500 dark:text-blue-300 text-[13px]">
+          <span className="font-semibold bg-blue-100 dark:bg-blue-900 px-1.5 py-0.5 rounded-sm">
+            {post.category}
+          </span>
         </p>
 
         {/* Title */}
@@ -43,7 +45,7 @@ export default function ArticleHeader() {
         </p>
 
         {/* Description */}
-        <div className="flex flex-col md:flex-row gap-10 mb-3">
+        <div className="flex flex-col-reverse md:flex-row gap-5 md:gap-7 mb-3">
           <div>
             <p className="text-zinc-500 dark:text-zinc-500 font-normal text-[14px] mb-2">
               Posted by
@@ -56,8 +58,7 @@ export default function ArticleHeader() {
             <p className="text-zinc-500 dark:text-zinc-500 font-normal text-[14px] mb-2">
               Date Uploaded
             </p>
-            <p className="text-zinc-800 dark:text-zinc-200 font-normal text-xs mb-2 capitalize">
-              <span>🗓️ Last Updated on </span>
+            <p className="text-zinc-800 dark:text-zinc-200 font-semibold text-[15px] mb-2 capitaliz py-1">
               <span>
                 <time dateTime={post.date}>
                   {format(parseISO(post.date), "LLLL d, yyyy", {

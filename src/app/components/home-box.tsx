@@ -1,12 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
 import { compareDesc, format, parseISO } from "date-fns";
 import { enUS } from "date-fns/locale";
+import { Feather } from "lucide-react";
 
-type PostWithLayout = (typeof allPosts)[number] & { layout: "image" | "text" };
+type PostWithLayout = (typeof allPosts)[number] & { layout: "text" };
 
 export default function HomeBox() {
   const [structuredPosts, setStructuredPosts] = useState<
@@ -18,13 +18,10 @@ export default function HomeBox() {
       .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
       .slice(4);
 
-    const result = posts.map((post, index) => {
-      const preferredLayout =
-        Math.floor(index / 2) % 2 === 0 ? "image" : "text";
-      const layout: "image" | "text" =
-        preferredLayout === "image" && post.image ? "image" : "text";
-      return { ...post, layout };
-    });
+    const result: PostWithLayout[] = posts.map((post) => ({
+      ...post,
+      layout: "text",
+    }));
 
     setStructuredPosts(result);
   }, []);
@@ -32,54 +29,37 @@ export default function HomeBox() {
   if (!structuredPosts) return null;
 
   return (
-    <div className="container mx-auto gap-8 lg:gap-12 grid grid-cols-1 sm:grid-cols-2 place-items-center">
+    <div className="container mx-auto gap-15 lg:gap-14 grid grid-cols-1 sm:grid-cols-2 place-items-center">
       {structuredPosts.map((post) => (
         <div
           key={post._id}
-          className="w-full flex flex-col justify-between h-auto md:h-[580px] border-b border-ui">
-          <div className="flex flex-col space-y-3">
-            {post.layout === "image" && (
-              <Image
-                src={post.image || "/fallback-image.jpg"}
-                alt={post.title}
-                width={0} // Necessary for Next.js when using CSS for layout
-                height={0} // Necessary for Next.js when using CSS for layout
-                sizes="(min-width: 640px) 50vw, 100vw" // Adjust based on your grid layout for better optimization
-                // (e.g., 50vw on screens wider than sm breakpoint if it's a 2-col grid)
-                className="w-full max-h-[250px] object-cover rounded-sm border" // Correct Tailwind class for max height
-              />
-            )}
-            <p className="font-mono font-medium uppercase tracking-widest text-blue-500   dark:text-blue-400  text-[12px]">
-              <span className="font-semibold">{post.category}</span>
-              <span className="hidden sm:inline"> - {post.readtime}</span>
+          className="w-full flex flex-col justify-between h-fit md:h-[330px]">
+          <div className="flex flex-col space-y-4 md:space-y-3">
+            <p className="font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-300 text-[12px]">
+              <span className="font-semibold bg-blue-100 dark:bg-blue-900 px-1.5 py-0.5 rounded-sm">
+                {post.category}
+              </span>
             </p>
             <Link
               href={post.url}
-              className={`font-semibold dark:text-zinc-100 tracking-tight hover:underline ${
-                post.layout === "text"
-                  ? "line-clamp-5 text-2xl md:text-3xl leading-10"
-                  : "text-xl  line-clamp-3 leading-8"
-              }`}>
+              className="font-semibold dark:text-zinc-100 tracking-tight hover:underline hover line-clamp-3 text-xl md:text-2xl leading-8">
+              {" "}
               {post.title}
             </Link>
-            <p
-              className={`text-[15px] text-zinc-600 dark:text-zinc-400 leading-5  ${
-                post.layout === "text" ? "line-clamp-5" : "line-clamp-3"
-              }`}>
+
+            <p className="text-[15px] text-zinc-700 dark:text-zinc-300 leading-5 mb-5 line-clamp-4">
               {post.summary}
             </p>
-          </div>
 
-          <p className="text-[12px] font-mono font-medium uppercase tracking-wide text-zinc-600 dark:text-zinc-400 mt-4 mb-3">
-            <time dateTime={post.date}>
-              {format(parseISO(post.date), "LLL d, yyyy", {
-                locale: enUS,
-              }).toUpperCase()}
-            </time>
-            <span className="hidden sm:inline ">
-              {" • "} {post.author}
-            </span>
-          </p>
+            <div className="flex gap-1 items-center text-[12px] font-normal tracking-wide text-zinc-500 dark:text-zinc-400">
+              <Feather size="15" />
+              <time dateTime={post.date}>
+                {format(parseISO(post.date), "LLLL d, yyyy", {
+                  locale: enUS,
+                })}
+              </time>
+            </div>
+          </div>
         </div>
       ))}
     </div>
