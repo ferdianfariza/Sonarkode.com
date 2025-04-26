@@ -1,6 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { allPosts } from "contentlayer/generated";
-import { useParams } from "next/navigation";
 import Link from "next/link";
 
 export default function AvatarText() {
