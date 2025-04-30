@@ -28,25 +28,26 @@ export default function HomeBox() {
   if (!structuredPosts) return null;
 
   return (
-    <div className="mx-auto gap-15 lg:gap-14 grid grid-cols-1 md:grid-cols-2 place-items-center transition-all duration-300 ease-in-out">
+    <div className="mx-auto grid grid-cols-1 md:grid-cols-2 place-items-center gap-11 lg:gap-9 transition-all duration-300 ease-in-out">
       {structuredPosts.map((post) => (
         <div
           key={post._id}
           className="w-full flex flex-col justify-between h-fit md:h-[330px] transition-all duration-300 ease-in-out">
           <div className="flex flex-col space-y-3">
-            <p className="font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-300 text-[12px]">
-              <span className="font-semibold bg-blue-100 dark:bg-blue-900 px-1.5 py-0.5 rounded-sm">
+            <p className="text-[12px] font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-300">
+              <span className="bg-blue-100 dark:bg-blue-900 px-1.5 py-0.5 rounded-sm font-semibold">
                 {post.category}
               </span>
             </p>
-            <div className="space-y-2 mt-1">
+
+            <div className="mt-1 space-y-2">
               <Link
                 href={post.url}
-                className="font-semibold dark:text-zinc-100 tracking-tight hover:underline hover line-clamp-3 text-xl md:text-2xl leading-8">
-                {" "}
+                className="text-xl md:text-2xl font-semibold leading-8 tracking-tight transition-all duration-700 ease-in-out line-clamp-3 hover:underline dark:text-zinc-100 decoration-zinc-300 dark:decoration-zinc-600">
                 {post.title}
               </Link>
-              <div className="flex gap-1 pb-3 items-center text-[12px] uppercase font-mono font-semibold tracking-wider text-zinc-600 dark:text-zinc-400">
+
+              <div className="flex items-center gap-1 pb-3 text-[12px] font-mono font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
                 <time dateTime={post.date}>
                   {format(parseISO(post.date), "LLLL d, yyyy", {
                     locale: enUS,
@@ -55,7 +56,7 @@ export default function HomeBox() {
               </div>
             </div>
 
-            <p className="text-[15px] text-zinc-700 dark:text-zinc-300 leading-6 line-clamp-4 mb-5">
+            <p className="mb-5 text-[15px] leading-6 text-zinc-700 dark:text-zinc-300 line-clamp-4">
               {post.summary}
             </p>
           </div>

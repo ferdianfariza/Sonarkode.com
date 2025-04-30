@@ -22,7 +22,7 @@ export default function HomeHero() {
     <div className="w-full">
       <div className="w-full md:grid md:grid-cols-2 gap-2 lg:gap-12 md:items-start mb-15 sm:mb-4">
         {heroPost.image && (
-          <div className="relative w-full aspect-video rounded-none sm:rounded-sm overflow-hidden border border-ui mb-7 md:mb-0">
+          <div className="relative w-full aspect-video rounded-none sm:rounded-sm overflow-hidden border-b border-ui md:border md:border-zinc-800 mb-7 md:mb-0">
             <Image
               src={heroPost.image}
               alt={heroPost.title}
