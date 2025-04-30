@@ -37,8 +37,13 @@ export default function HomeFeatured() {
 
   return (
     <section className="w-full max-w-screen-xl mx-auto px-0">
-      <hr className="w-full border-ui mb-5 mx-auto" />
-
+      <div className="items-center justify-center">
+        <hr className="flex md:hidden w-full border-ui mx-auto" />
+        <p className="flex justify-center md:justify-start items-center font-mono uppercase text-xs mx-auto tracking-widest py-4">
+          Featured
+        </p>
+        <hr className="w-full border-ui mb-5 mx-auto" />
+      </div>
       <div className="w-auto flex flex-col md:flex-row md:items-stretch">
         {/* --- Column 1: Post 2 --- */}
         <div className="flex-1 min-w-0 py-1 md:py-0 flex flex-col">
@@ -80,7 +85,6 @@ export default function HomeFeatured() {
           <PostFeatureItem post={post4} />
         </div>
       </div>
-
       <hr className="w-full border-t border-ui mt-5 mx-auto" />
     </section>
   );

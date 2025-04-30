@@ -20,7 +20,7 @@ export default function ArticleMain() {
   return (
     <div>
       <SiteHeader />
-      <div className="py-8 mx-3 md:mx-auto max-w-2xl">
+      <div className="py-8 mx-4 md:mx-auto max-w-2xl">
         <ArticleHeader />
         <Mdx code={post.body.code} />
         <ArticleFooter />

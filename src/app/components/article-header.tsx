@@ -37,7 +37,7 @@ export default function ArticleHeader() {
         </h1>
 
         {/* Summary */}
-        <p className="font-normal text-[16px] mb-5 leading-6">
+        <p className="font-normal text-[16px] mb-9 leading-6">
           <span className="font-semibold text-blue-500  dark:text-blue-400">
             Quick Summary -{">"}{" "}
           </span>
@@ -54,7 +54,7 @@ export default function ArticleHeader() {
               <AvatarText />
             </div>
           </div>
-          <div>
+          <div className="hidden md:inline">
             <p className="text-zinc-500 dark:text-zinc-500 font-normal text-[14px] mb-2">
               Date Uploaded
             </p>

@@ -8,8 +8,10 @@ export default function HomeMain() {
   return (
     <>
       <SiteHeader />
-      <div className="mt-1 md:mt-8 container mx-auto px-3 lg:px-0 gap-8 lg:gap-12 max-w-[60rem] flex flex-col place-items-center">
+      <div className="md:mt-8 mx-auto px-0 md:px-3 lg:px-0 max-w-[60rem] place-items-center">
         <HomeHero />
+      </div>
+      <div className="md:mt-8 container mx-auto px-4 lg:px-0 gap-15 lg:gap-12 max-w-[60rem] flex flex-col place-items-center">
         <HomeFeatured />
         <HomeBox />
       </div>
