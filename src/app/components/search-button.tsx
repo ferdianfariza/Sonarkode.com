@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { type DialogProps } from "@radix-ui/react-dialog";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { House, CircleUserRound, Megaphone, BookMarked } from "lucide-react";
+import { House, CircleUserRound, Megaphone } from "lucide-react";
 import { format, parseISO } from "date-fns";
 import { enUS } from "date-fns/locale";
 
