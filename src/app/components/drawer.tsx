@@ -13,6 +13,9 @@ import { Icons } from "./logo";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { HiOutlineBars2 } from "react-icons/hi2";
+import { House, CircleUserRound, Megaphone } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
 
 export default function Logo() {
   return (
@@ -36,34 +39,78 @@ export default function Logo() {
                 <DrawerTitle> </DrawerTitle>
                 <DrawerClose
                   asChild
-                  className="hover:bg-foreground/10 w-full text-start rounded-md p-2">
-                  <Link href="./">Home</Link>
+                  className="hover:bg-foreground/15 w-full text-start rounded-sm p-2">
+                  <Link href="/" className="flex items-center gap-1.5">
+                    <span>
+                      <House size="23" />
+                    </span>
+                    <span>Home</span>
+                  </Link>
                 </DrawerClose>
                 <DrawerClose
                   asChild
-                  className="hover:bg-foreground/10 w-full text-start rounded-md p-2">
-                  <Link href="./sponsorship">Sponsorship</Link>
+                  className="hover:bg-foreground/15 w-full text-start rounded-md p-2">
+                  <Link
+                    href="/sponsorship"
+                    className="flex items-center gap-1.5">
+                    <span>
+                      <Megaphone size="23" />
+                    </span>
+                    <span>Sponsorship</span>
+                  </Link>
                 </DrawerClose>
                 <DrawerClose
                   asChild
-                  className="hover:bg-foreground/10 w-full text-start rounded-md p-2">
-                  <Link href="./about">About</Link>
+                  className="hover:bg-foreground/15 w-full text-start rounded-md p-2">
+                  <Link href="/about" className="flex items-center gap-1.5">
+                    <span>
+                      <CircleUserRound size="23" />
+                    </span>
+                    <span>About</span>
+                  </Link>
                 </DrawerClose>
                 <Separator className="m-2" />
                 <DrawerClose
                   asChild
                   className="hover:bg-foreground/10 text-foreground/70 w-full text-start rounded-md p-2">
-                  <Link href="./">LinkedIn</Link>
+                  <Link
+                    href="https://github.com/ferdianfariza"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5">
+                    <span>
+                      <FaGithub size="23" />
+                    </span>
+                    <span>GitHub</span>
+                  </Link>
                 </DrawerClose>
                 <DrawerClose
                   asChild
                   className="hover:bg-foreground/10 text-foreground/70 w-full text-start rounded-md p-2">
-                  <Link href="./">Instagram</Link>
+                  <Link
+                    href="https://www.linkedin.com/in/ferdian-nur-fariza-651965273/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5">
+                    <span>
+                      <FaLinkedin size="23" />
+                    </span>
+                    <span>LinkedIn</span>
+                  </Link>
                 </DrawerClose>
                 <DrawerClose
                   asChild
                   className="hover:bg-foreground/10 text-foreground/70 w-full text-start rounded-md p-2">
-                  <Link href="./">GitHub</Link>
+                  <Link
+                    href="https://www.instagram.com/ferdianfariza/"
+                    className="flex items-center gap-1.5"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <span>
+                      <FaInstagram size="23" />
+                    </span>
+                    <span>Personal Instagram</span>
+                  </Link>
                 </DrawerClose>
               </div>
             </DrawerHeader>

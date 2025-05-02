@@ -8,6 +8,8 @@ import { type DialogProps } from "@radix-ui/react-dialog";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { House, CircleUserRound, Megaphone, BookMarked } from "lucide-react";
+import { format, parseISO } from "date-fns";
+import { enUS } from "date-fns/locale";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -19,6 +21,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import Link from "next/link";
 
 export function Search({ ...props }: DialogProps) {
   const router = useRouter();
@@ -76,24 +79,44 @@ export function Search({ ...props }: DialogProps) {
               <CommandItem
                 key={post._id}
                 onSelect={() => runCommand(() => router.push(post.url))}>
-                <BookMarked className="mr-2 h-4 w-4" />
-                {post.title}
+                <div>
+                  <div className="items-center mb-1 text-[12px] font-mono font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
+                    <time dateTime={post.date}>
+                      {format(parseISO(post.date), "LLLL d, yyyy", {
+                        locale: enUS,
+                      })}
+                    </time>
+                  </div>
+                  <div className="font-semibold line-clamp-2">{post.title}</div>
+                </div>
               </CommandItem>
             ))}
           </CommandGroup>
 
           <CommandGroup heading="Links">
             <CommandItem>
-              <House />
-              Home
+              <Link href="/" className="flex items-center gap-1.5">
+                <span>
+                  <House size="23" />
+                </span>
+                <span>Home</span>
+              </Link>
             </CommandItem>
             <CommandItem>
-              <CircleUserRound />
-              About
+              <Link href="/sponsorship" className="flex items-center gap-1.5">
+                <span>
+                  <Megaphone size="23" />
+                </span>
+                <span>Sponsorship</span>
+              </Link>
             </CommandItem>
             <CommandItem>
-              <Megaphone />
-              Sponsorship
+              <Link href="/about" className="flex items-center gap-1.5">
+                <span>
+                  <CircleUserRound size="23" />
+                </span>
+                <span>About</span>
+              </Link>
             </CommandItem>
           </CommandGroup>
 

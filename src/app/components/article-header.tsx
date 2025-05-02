@@ -32,7 +32,7 @@ export default function ArticleHeader() {
         </p>
 
         {/* Title */}
-        <h1 className="mt-4 mb-9 leading-9 md:leading-10 text-[1.9rem] md:text-4xl font-semibold tracking-tight">
+        <h1 className="mt-4 mb-9 leading-9 md:leading-10 text-[1.9rem] md:text-4xl text-animation font-semibold tracking-tight">
           {post.title}
         </h1>
 

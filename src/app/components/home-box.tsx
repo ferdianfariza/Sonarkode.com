@@ -28,11 +28,11 @@ export default function HomeBox() {
   if (!structuredPosts) return null;
 
   return (
-    <div className="mx-auto grid grid-cols-1 md:grid-cols-2 place-items-center gap-11 lg:gap-9 transition-all duration-300 ease-in-out">
+    <div className="mx-auto grid grid-cols-1 md:grid-cols-2 place-items-center gap-11 lg:gap-9 text-animation">
       {structuredPosts.map((post) => (
         <div
           key={post._id}
-          className="w-full flex flex-col justify-between h-fit md:h-[330px] transition-all duration-300 ease-in-out">
+          className="w-full flex flex-col justify-between h-fit md:h-[330px] text-animation">
           <div className="flex flex-col space-y-3">
             <p className="text-[12px] font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-300">
               <span className="bg-blue-100 dark:bg-blue-900 px-1.5 py-0.5 rounded-sm font-semibold">
@@ -43,7 +43,7 @@ export default function HomeBox() {
             <div className="mt-1 space-y-2">
               <Link
                 href={post.url}
-                className="text-xl md:text-2xl font-semibold leading-8 tracking-tight transition-all duration-700 ease-in-out line-clamp-3 hover:underline dark:text-zinc-100 decoration-zinc-300 dark:decoration-zinc-600">
+                className="text-xl md:text-2xl font-semibold leading-8 tracking-tight text-animation line-clamp-3 hover:underline dark:text-zinc-100 decoration-zinc-300 dark:decoration-zinc-600">
                 {post.title}
               </Link>
 

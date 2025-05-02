@@ -138,3 +138,7 @@ body {
 .text-ui {
   @apply text-zinc-800 dark:text-zinc-200;
 }
+
+.text-animation {
+  @apply transition-all duration-700 ease-in-out;
+}

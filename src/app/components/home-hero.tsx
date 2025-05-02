@@ -20,7 +20,7 @@ export default function HomeHero() {
 
   return (
     <div className="w-full">
-      <div className="w-full md:grid md:grid-cols-2 gap-2 lg:gap-12 md:items-start mb-15 sm:mb-4">
+      <div className="w-full md:grid md:grid-cols-2 gap-2 lg:gap-12 md:items-start mb-15 sm:mb-4 text-animation">
         {heroPost.image && (
           <div className="relative w-full aspect-video rounded-none sm:rounded-sm overflow-hidden border-b border-ui md:border md:border-zinc-800 mb-7 md:mb-0">
             <Image

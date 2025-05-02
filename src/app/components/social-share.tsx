@@ -9,16 +9,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Share } from 'lucide-react';
-import { FaLinkedinIn, FaTwitter, FaWhatsapp, FaLink  } from "react-icons/fa";
+import { Share } from "lucide-react";
+import { FaLinkedinIn, FaTwitter, FaWhatsapp, FaLink } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { Toaster, toast } from "sonner";
-import { useTheme } from "next-themes";
+import { toast } from "sonner";
 
 export default function SocialShare() {
   const [currentUrl, setCurrentUrl] = useState("");
   const text = "Check out this awesome article!";
-  const { theme } = useTheme();
 
   useEffect(() => {
     setCurrentUrl(window.location.href);
@@ -32,8 +30,6 @@ export default function SocialShare() {
 
   return (
     <div className="flex justify-center space-x-1">
-      <Toaster position="bottom-right" theme={theme === 'dark' ? 'dark' : 'light'}/>
-
       {/* Dropdown */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -48,21 +44,20 @@ export default function SocialShare() {
           {/* Copy link */}
           <DropdownMenuItem>
             <div
-               role="button"
-               className="flex items-center gap-2 w-full"
-               onClick={(e) => {
-                  e.preventDefault();
-                  navigator.clipboard.writeText(currentUrl);
-                  toast.success('URL copied to clipboard!');
-               }}
-            >
-               <FaLink  />
-               <span>Copy link</span>
+              role="button"
+              className="flex items-center gap-2 w-full"
+              onClick={(e) => {
+                e.preventDefault();
+                navigator.clipboard.writeText(currentUrl);
+                toast.success("URL copied to clipboard!");
+              }}>
+              <FaLink />
+              <span>Copy link</span>
             </div>
-         </DropdownMenuItem>
+          </DropdownMenuItem>
 
           <DropdownMenuSeparator />
-          
+
           {/* Twitter */}
           <DropdownMenuItem>
             <Link
@@ -70,8 +65,7 @@ export default function SocialShare() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 w-full"
-              onClick={() => handleShare('Twitter')}
-            >
+              onClick={() => handleShare("Twitter")}>
               <FaTwitter className="text-blue-500" />
               Twitter
             </Link>
@@ -84,8 +78,7 @@ export default function SocialShare() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 w-full"
-              onClick={() => handleShare('LinkedIn')}
-            >
+              onClick={() => handleShare("LinkedIn")}>
               <FaLinkedinIn className="text-blue-600" />
               LinkedIn
             </Link>
@@ -98,13 +91,11 @@ export default function SocialShare() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 w-full"
-              onClick={() => handleShare('WhatsApp')}
-            >
+              onClick={() => handleShare("WhatsApp")}>
               <FaWhatsapp className="text-green-500" />
               WhatsApp
             </Link>
           </DropdownMenuItem>
-          
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
