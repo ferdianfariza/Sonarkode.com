@@ -27,7 +27,6 @@ export default function HomeFooter() {
           <div className="flex flex-col space-y-3 md:space-y-2">
             <div className="text-[14px] text-zinc-500">Socials /</div>
             {[
-              { href: "https://x.com/ferdianfarizaa", label: "X" },
               {
                 href: "https://www.instagram.com/ferdianfariza/",
                 label: "Instagram",
@@ -38,7 +37,7 @@ export default function HomeFooter() {
               },
               { href: "https://github.com/ferdianfariza", label: "Github" },
             ].map((social, index) => {
-              const isLast = index === 3;
+              const isLast = index === 2;
               return (
                 <Link
                   key={social.label}

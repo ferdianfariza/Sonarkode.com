@@ -87,7 +87,9 @@ export function Search({ ...props }: DialogProps) {
                       })}
                     </time>
                   </div>
-                  <div className="font-semibold line-clamp-2">{post.title}</div>
+                  <div className="font-semibold line-clamp-2 md:line-clamp-1">
+                    {post.title}
+                  </div>
                 </div>
               </CommandItem>
             ))}
