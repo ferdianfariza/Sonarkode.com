@@ -5,8 +5,11 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { enUS } from "date-fns/locale";
 import { Feather } from "lucide-react";
 
-// Helper Component (remains the same)
-const PostFeatureItem = ({ post }: { post: Post }) => {
+type Props = {
+  post: Post;
+};
+
+const PostFeatureItem = ({ post }: Props) => {
   return (
     <div className="flex flex-col justify-between flex-1">
       <Link

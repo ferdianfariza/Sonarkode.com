@@ -9,9 +9,11 @@ import ArticleHeader from "@/app/components/article-header";
 import HomeFooter from "@/app/components/site-footer";
 
 export default function ArticleMain() {
-  const params = useParams(); // ensure params dengan useParams
-  const slug = params.slug as string; // ensure slug as a string
-  const post = allPosts.find((post) => post._raw.flattenedPath === slug);
+  const params = useParams();
+  const slug = params.slug as string;
+  const post = allPosts.find(
+    (post) => post._raw.flattenedPath === `posts/${slug}`
+  );
 
   if (!post?.body.code) {
     return <div>No post here!</div>;

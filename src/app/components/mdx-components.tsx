@@ -3,7 +3,6 @@
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import React, { useState } from "react";
 import { Check, Copy,ArrowUpRight } from 'lucide-react';
-
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
 
@@ -93,8 +92,8 @@ const components = {
       return (
         <a
           href={href}
-          target="_blank" // Open external links in new tab
-          rel="noopener noreferrer" // Security measure for target="_blank"
+          target="_blank" 
+          rel="noopener noreferrer"
           className="text-blue-600  decoration-blue-600/30 hover:decoration-blue-600 dark:text-blue-400 dark:decoration-blue-400/30 dark:hover:decoration-blue-400 transition-colors"
           {...rest}
         >
@@ -106,12 +105,11 @@ const components = {
       );
     }
 
-    // For internal links (if using Next.js Link component is desired, see note below)
     return (
       <a
         href={href}
         className="text-blue-600  decoration-blue-600/30 hover:decoration-blue-600 dark:text-blue-400 dark:decoration-blue-400/30 dark:hover:decoration-blue-400 transition-colors"
-        {...rest} // Pass other props like title, etc.
+        {...rest} 
       >
         {children}
       </a>
@@ -126,8 +124,8 @@ const components = {
   // image
   img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
     <img
-      className="my-6 rounded-sm border border-ui max-w-full h-auto" // Added styling
-      alt={props.alt || ""} // Ensure alt text is present for accessibility
+      className="my-6 rounded-sm border border-ui max-w-full h-auto" 
+      alt={props.alt || ""} 
       {...props}
     />
   ),

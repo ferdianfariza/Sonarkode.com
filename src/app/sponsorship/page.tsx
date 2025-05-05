@@ -1,11 +1,17 @@
+import { allPages } from "contentlayer/generated";
+import Mdx from "@/app/components/mdx-components";
+
 export default function Sponsorship() {
+  const page = allPages.find(
+    (p) => p._raw.flattenedPath === "pages/sponsorship"
+  );
+
+  if (!page) return <div>Not found</div>;
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-4xl font-bold mb-4">Sponsorship</h1>
-      <p className="text-lg">
-        We are looking for sponsors to support our project.
-      </p>
-      <p className="text-lg">If you are interested, please contact us!</p>
+    <div className="mx-auto max-w-2xl py-8">
+      <h1 className="text-2xl font-bold mb-4">{page.title}</h1>
+      <Mdx code={page.body.code} />
     </div>
   );
 }

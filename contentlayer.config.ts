@@ -2,7 +2,31 @@
 
   export const Post = defineDocumentType(() => ({
     name: 'Post',
-    filePathPattern: `**/*.mdx`,
+    filePathPattern: `posts/**/*.mdx`,
+    contentType: 'mdx',
+    fields: {
+      title: { type: 'string', required: true },
+      date: { type: 'date', required: true },
+      summary: { type: 'string', required: true },
+      image: { type: 'string', required: false},
+      author: { type: 'string', required: true},
+      category: { type: 'string', required: true},
+      readtime: { type: 'string', required: true},
+    },
+    computedFields: {
+      url: {
+        type: 'string',
+        resolve: (post) => `/${post._raw.flattenedPath}`,
+      },
+      image: {
+        type: 'string',
+        resolve: (post) => (post.image ?? '').trimEnd(),
+      },
+    }    
+  }))
+  export const Page = defineDocumentType(() => ({
+    name: 'Page',
+    filePathPattern: `pages/*.mdx`,
     contentType: 'mdx',
     fields: {
       title: { type: 'string', required: true },
@@ -16,7 +40,8 @@
     computedFields: {
       url: { 
         type: 'string', 
-        resolve: (post) => `/posts/${post._raw.flattenedPath}` },
+        resolve: (post) => `/${post._raw.flattenedPath}`,
+       },
       image: { 
         type: 'string', 
         resolve: (post) => (post.image ?? '').trimEnd(),
@@ -24,4 +49,4 @@
       },
   }))
 
-  export default makeSource({ contentDirPath: 'posts', documentTypes: [Post] })
+  export default makeSource({ contentDirPath: 'content', documentTypes: [Post, Page] })
