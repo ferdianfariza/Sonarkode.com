@@ -1,10 +1,10 @@
-"use client"; // <-- Penting! Komponen ini menggunakan hooks sisi klien
+"use client"; 
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { allPosts, Post } from "contentlayer/generated"; // Impor tipe Post juga jika pakai TS
+import { allPosts, Post } from "contentlayer/generated"; 
 import { useParams } from "next/navigation";
-import { useState, useEffect } from "react"; // Impor useState dan useEffect
+import { useState, useEffect } from "react";
 
 export default function ArticleReadAlso() {
   const params = useParams();
@@ -14,9 +14,10 @@ export default function ArticleReadAlso() {
 
   useEffect(() => {
     if (currentSlug && allPosts.length > 0) {
-      const otherPosts = allPosts.filter(
-        (post) => post._raw.flattenedPath !== currentSlug
-      );
+      const otherPosts = allPosts.filter((post) => {
+        const slugFromPath = post._raw.flattenedPath.split("/").pop();
+        return slugFromPath !== currentSlug;
+      });
 
       if (otherPosts.length > 0) {
         const randomIndex = Math.floor(Math.random() * otherPosts.length);

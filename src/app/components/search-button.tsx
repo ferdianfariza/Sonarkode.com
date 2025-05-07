@@ -96,27 +96,23 @@ export function Search({ ...props }: DialogProps) {
           </CommandGroup>
 
           <CommandGroup heading="Links">
-            <CommandItem>
-              <Link href="/" className="flex items-center gap-1.5">
-                <span>
-                  <House size="23" />
-                </span>
+            <CommandItem asChild>
+              <Link href="/" className="flex items-center w-full gap-2">
+                <House size={20} />
                 <span>Home</span>
               </Link>
             </CommandItem>
-            <CommandItem>
-              <Link href="/sponsorship" className="flex items-center gap-1.5">
-                <span>
-                  <Megaphone size="23" />
-                </span>
+            <CommandItem asChild>
+              <Link
+                href="/sponsorship"
+                className="flex items-center w-full gap-2">
+                <Megaphone size={20} />
                 <span>Sponsorship</span>
               </Link>
             </CommandItem>
-            <CommandItem>
-              <Link href="/about" className="flex items-center gap-1.5">
-                <span>
-                  <CircleUserRound size="23" />
-                </span>
+            <CommandItem asChild>
+              <Link href="/about" className="flex items-center w-full gap-2">
+                <CircleUserRound size={20} />
                 <span>About</span>
               </Link>
             </CommandItem>

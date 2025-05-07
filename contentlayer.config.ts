@@ -40,11 +40,11 @@
     computedFields: {
       url: { 
         type: 'string', 
-        resolve: (post) => `/${post._raw.flattenedPath}`,
+        resolve: (page) => `/${page._raw.flattenedPath}`,
        },
       image: { 
         type: 'string', 
-        resolve: (post) => (post.image ?? '').trimEnd(),
+        resolve: (page) => (page.image ?? '').trimEnd(),
       },
       },
   }))
