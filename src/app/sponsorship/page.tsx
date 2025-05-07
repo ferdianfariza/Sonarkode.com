@@ -1,6 +1,6 @@
 import { allPages } from "contentlayer/generated";
 import Mdx from "@/app/components/mdx-components";
-import PageHeader from "@/app/components/pages-header";
+
 import { SiteHeader } from "../components/site-header";
 import HomeFooter from "../components/site-footer";
 
@@ -15,7 +15,6 @@ export default function About() {
     <div>
       <SiteHeader />
       <div className="py-8 mx-4 md:mx-auto max-w-2xl">
-        <PageHeader page={page} />
         <Mdx code={page.body.code} />
       </div>
       <HomeFooter />
