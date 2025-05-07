@@ -17,11 +17,9 @@ export default function About() {
           and insightful.
         </h1>
         <p className="text-center  text-sm  leading-6 text-zinc-500 mb-40">
-          We believe that having a platform to share your thoughts and knowledge
-          is a powerful tool—but with great power comes great responsibility. It
-          means striving for accuracy, being thoughtful with every word, and
-          contributing positively to the community. Through meaningful content,
-          we aim to inspire, inform, and empower others to grow and take action.
+          {
+            "We believe that having a platform to share your thoughts and knowledge is a powerful tool—but with great power comes great responsibility. It means striving for accuracy, being thoughtful with every word, and contributing positively to the community Through meaningful content, we aim to inspire, inform, and empower others to grow and take action."
+          }
         </p>
 
         {/* Profile */}
@@ -130,7 +128,7 @@ export default function About() {
                 Work with Ferdian
               </h3>
               <p className="text-sm text-zinc-500 leading-5 max-w-xl mx-auto mb-6">
-                Let's connect and explore opportunities to work together!
+                {"Let's connect and explore opportunities to work together!"}
               </p>
 
               {/* Link 1 */}
