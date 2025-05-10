@@ -64,7 +64,7 @@ export default function Logo() {
 
                 <DrawerClose
                   asChild
-                  className="active:underline active:dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 w-full text-start  font-medium rounded-2xl p-3">
+                  className="active:bg-zinc-100 active:dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 w-full text-start  font-medium rounded-2xl p-3">
                   <Link href="https://github.com/ferdianfariza/Sonarkode.com"  target="_blank"
                   rel="noopener noreferrer" className="flex items-center gap-2">
                     <span>GitHub</span>
