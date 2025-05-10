@@ -15,6 +15,9 @@ export default function About() {
     <div>
       <SiteHeader />
       <div className="py-8 mx-4 md:mx-auto max-w-2xl">
+      <h1>FAQ dengan Accordion</h1>
+      <h1>Card dengan contoh posisi iklan</h1>
+      <h1>Promo Students</h1>
         <Mdx code={page.body.code} />
       </div>
       <HomeFooter />

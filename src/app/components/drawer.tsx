@@ -13,9 +13,6 @@ import { Icons } from "./logo";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { HiOutlineBars2 } from "react-icons/hi2";
-import { House, CircleUserRound, Megaphone } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6";
 
 export default function Logo() {
   return (
@@ -35,83 +32,67 @@ export default function Logo() {
           </DrawerTrigger>
           <DrawerContent className="max-h-[60svh]">
             <DrawerHeader>
-              <div className="p-2 flex-col flex items-start">
+              <div className="p-1 w-full flex-col flex items-start text-lg">
                 <DrawerTitle> </DrawerTitle>
                 <DrawerClose
                   asChild
-                  className="hover:bg-foreground/15 w-full text-start rounded-sm p-2">
+                  className="active:bg-zinc-100 active:dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 w-full text-start font-medium rounded-2xl p-3">
                   <Link href="/" className="flex items-center gap-1.5">
-                    <span>
-                      <House size="23" />
-                    </span>
                     <span>Home</span>
                   </Link>
                 </DrawerClose>
                 <DrawerClose
                   asChild
-                  className="hover:bg-foreground/15 w-full text-start rounded-md p-2">
-                  <Link
-                    href="/sponsorship"
-                    className="flex items-center gap-1.5">
-                    <span>
-                      <Megaphone size="23" />
-                    </span>
-                    <span>Sponsorship</span>
-                  </Link>
-                </DrawerClose>
-                <DrawerClose
-                  asChild
-                  className="hover:bg-foreground/15 w-full text-start rounded-md p-2">
+                  className="active:bg-zinc-100 active:dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 w-full text-start  font-medium rounded-2xl p-3">
                   <Link href="/about" className="flex items-center gap-1.5">
-                    <span>
-                      <CircleUserRound size="23" />
-                    </span>
                     <span>About</span>
                   </Link>
                 </DrawerClose>
-                <Separator className="m-2" />
                 <DrawerClose
                   asChild
-                  className="hover:bg-foreground/10 text-foreground/70 w-full text-start rounded-md p-2">
+                  className="active:bg-zinc-100 active:dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 w-full text-start font-medium rounded-2xl p-3">
                   <Link
-                    href="https://github.com/ferdianfariza"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/sponsorship"
                     className="flex items-center gap-1.5">
-                    <span>
-                      <FaGithub size="23" />
-                    </span>
+                    <span>Sponsorship</span>
+                  </Link>
+                </DrawerClose>
+
+                <div className="w-full px-3">
+                  <Separator orientation="horizontal" className=" my-4 bg-border" />
+                </div>
+
+                <DrawerClose
+                  asChild
+                  className="active:underline active:dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 w-full text-start  font-medium rounded-2xl p-3">
+                  <Link href="https://github.com/ferdianfariza/Sonarkode.com"  target="_blank"
+                  rel="noopener noreferrer" className="flex items-center gap-2">
                     <span>GitHub</span>
+
+                    <span className="px-1.5 text-[12px] rounded-sm bg-purple-500  text-white dark:text-black">Docs</span>
                   </Link>
                 </DrawerClose>
                 <DrawerClose
                   asChild
-                  className="hover:bg-foreground/10 text-foreground/70 w-full text-start rounded-md p-2">
-                  <Link
-                    href="https://www.linkedin.com/in/ferdian-nur-fariza-651965273/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5">
-                    <span>
-                      <FaLinkedin size="23" />
-                    </span>
+                  className="active:bg-zinc-100 active:dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 w-full text-start  font-medium rounded-2xl p-3 mb-5">
+                  <Link href="https://www.linkedin.com/in/ferdian-nur-fariza-651965273/"  target="_blank"
+                  rel="noopener noreferrer" className="flex items-center gap-2">
                     <span>LinkedIn</span>
+                    <span className="px-1.5  text-[12px] rounded-sm   bg-blue-500  text-white  dark:text-black">Author</span>
                   </Link>
                 </DrawerClose>
-                <DrawerClose
-                  asChild
-                  className="hover:bg-foreground/10 text-foreground/70 w-full text-start rounded-md p-2">
-                  <Link
-                    href="https://www.instagram.com/ferdianfariza/"
-                    className="flex items-center gap-1.5"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <span>
-                      <FaInstagram size="23" />
-                    </span>
-                    <span>Personal Instagram</span>
-                  </Link>
-                </DrawerClose>
+                
+                <div className="w-full flex justify-between text-xs font-sans p-3">
+                  <div className="text-zinc-500 flex-col space-y-1.5">
+                    <div>Designed and Engineered by</div>
+                    <div>Sonarkode Blog</div>
+                  </div>
+                  <div>
+                    <Link href="/">
+                        <Icons.icon className="h-auto w-7 text-zinc-500" />
+                    </Link>
+                  </div>
+                </div>
               </div>
             </DrawerHeader>
           </DrawerContent>
