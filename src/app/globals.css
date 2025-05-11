@@ -51,7 +51,8 @@ body {
 :root {
 
   --radius: 0.625rem;
-  --background: oklch(0.983 0 0);
+  --background: 
+#f4f3ec;
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
@@ -132,7 +133,7 @@ body {
 }
 
 .border-ui {
-  @apply border-zinc-200 dark:border-zinc-800;
+  @apply border-zinc-300 dark:border-zinc-700;
 }
 
 .text-ui {
@@ -140,5 +141,5 @@ body {
 }
 
 .text-animation {
-  @apply transition-all duration-700 ease-in-out;
+  @apply transition-all duration-300 ease-in-out;
 }

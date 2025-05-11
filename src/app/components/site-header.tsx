@@ -7,7 +7,7 @@ import Logo from "./drawer";
 
 export function SiteHeader() {
   return (
-    <header className="w-full top-0 z-50 sticky bg-background/80 backdrop-blur-lg border-b border-ui">
+    <header className="w-full top-0 z-50 sticky bg-background/80 backdrop-blur-lg ">
       <nav>
         <div className="mx-auto max-w-[60rem] px-4 lg:px-0">
           <div className="h-14 flex items-center">

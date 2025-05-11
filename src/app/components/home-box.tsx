@@ -4,6 +4,7 @@ import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
 import { compareDesc, format, parseISO } from "date-fns";
 import { enUS } from "date-fns/locale";
+import Image from "next/image";
 
 type PostWithLayout = (typeof allPosts)[number] & { layout: "text" };
 
@@ -15,7 +16,7 @@ export default function HomeBox() {
   useEffect(() => {
     const posts = allPosts
       .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-      .slice(4);
+      .slice(1);
 
     const result: PostWithLayout[] = posts.map((post) => ({
       ...post,
@@ -28,39 +29,47 @@ export default function HomeBox() {
   if (!structuredPosts) return null;
 
   return (
-    <div className="mx-auto grid grid-cols-1 md:grid-cols-2 place-items-center gap-11 lg:gap-9 text-animation">
+    <div className="mx-auto grid grid-cols-1 md:grid-cols-1 place-items-center text-animation">
       {structuredPosts.map((post) => (
         <div
-          key={post._id}
-          className="w-full flex flex-col justify-between h-fit md:h-[330px] text-animation">
-          <div className="flex flex-col space-y-3">
-            <p className="text-[12px] font-mono font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-300">
-              <span className="bg-blue-100 dark:bg-blue-900 px-1.5 py-0.5 rounded-sm font-semibold">
-                {post.category}
-              </span>
-            </p>
+  key={post._id}
+  className="w-full flex flex-col md:flex-row justify-between gap-10 py-8 border-b  border-ui">
+  
+  {/* Text Content */}
+  <div className="flex-1 flex flex-col space-y-3 justify-center ">
+    <div className="gap-3 md:flex font-semibold text-blue-600 dark:text-blue-300 text-[12px]">
+      <div className="flex gap-1 items-center text-[16px] font-normal text-neutral-400 dark:text-zinc-500">
+        Published{" "}
+        <time dateTime={post.date}>
+          {format(parseISO(post.date), "LLLL d, yyyy", { locale: enUS })}
+        </time>
+      </div>
+    </div>
 
-            <div className="mt-1 space-y-2">
-              <Link
-                href={post.url}
-                className="text-xl md:text-2xl font-semibold leading-8 tracking-tight text-animation line-clamp-3 hover:underline dark:text-zinc-100 decoration-zinc-300 dark:decoration-zinc-600">
-                {post.title}
-              </Link>
+    <div className="space-y-2">
+      <Link
+        href={post.url}
+        className="hover:text-zinc-500 dark:hover:text-zinc-500 text-xl md:text-2xl font-semibold leading-8 tracking-[-0.020em] text-animation line-clamp-2 hover:underline dark:text-zinc-100 decoration-zinc-300 dark:decoration-zinc-600">
+        {post.title}
+      </Link>
+    </div>
+  </div>
 
-              <div className="flex items-center gap-1 pb-3 text-[12px] font-mono font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
-                <time dateTime={post.date}>
-                  {format(parseISO(post.date), "LLLL d, yyyy", {
-                    locale: enUS,
-                  })}
-                </time>
-              </div>
-            </div>
+  {/* Image */}
+  {post.image && (
+    <div className="w-full md:w-auto h-auto hidden md:inline flex-shrink-0">
+      <Image
+        src={post.image}
+        alt={post.title}
+        width={220}
+        height={140}
+        className="w-full h-auto object-cover"
+        priority
+      />
+    </div>
+  )}
+</div>
 
-            <p className="mb-5 text-[15px] leading-6 text-zinc-700 dark:text-zinc-300 line-clamp-4">
-              {post.summary}
-            </p>
-          </div>
-        </div>
       ))}
     </div>
   );
