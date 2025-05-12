@@ -80,51 +80,57 @@ function slugify(text: string): string {
     .trim()
     .replace(/\s+/g, '-');
 }
+const H1: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = (props) => {
+  const text = React.Children.toArray(props.children).join('');
+  const pathname = usePathname();
+  const id = slugify(text);
+  const link = `${pathname}#${id}`;
+
+  return (
+    <h1 id={id} className="group scroll-mt-20 mt-15 mb-5 text-3xl font-semibold tracking-tight inline-flex items-center gap-2" {...props}>
+      {props.children}
+      <Link
+        href={link}
+        className="opacity-0 group-hover:opacity-100 transition-opacity"
+        aria-label="Anchor link"
+      >
+        <Hash className="w-5 h-5 inline-block align-middle" />
+      </Link>
+    </h1>
+  );
+};
+
+const H2: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = (props) => {
+  const text = React.Children.toArray(props.children).join('');
+  const pathname = usePathname();
+  const id = slugify(text);
+  const link = `${pathname}#${id}`;
+
+  return (
+    <Link href={link}>
+      <h2 id={id} className="scroll-mt-20 mt-10 pb-1 text-2xl font-semibold tracking-tight" {...props} />
+    </Link>
+  );
+};
+
+const H3: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = (props) => {
+  const text = React.Children.toArray(props.children).join('');
+  const pathname = usePathname();
+  const id = slugify(text);
+  const link = `${pathname}#${id}`;
+
+  return (
+    <Link href={link}>
+      <h3 id={id} className="scroll-mt-20 mt-10 pb-1 text-xl font-semibold tracking-tight" {...props} />
+    </Link>
+  );
+};
 
 
 const components = {
-  h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
-    const text = React.Children.toArray(props.children).join('');
-    const pathname = usePathname();
-    const id = slugify(text);
-    const link = `${pathname}#${id}`;
-
-    return (
-      <h1 id={id} className="group scroll-mt-20 mt-15 mb-5 text-3xl font-semibold tracking-tight inline-flex items-center gap-2" {...props}>
-        {props.children}
-        <Link
-          href={link}
-          className="opacity-0 group-hover:opacity-100 transition-opacity"
-          aria-label="Anchor link"
-        >
-          <Hash className="w-5 h-5 inline-block align-middle" />
-        </Link>
-      </h1>
-    );
-  },
-  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
-    const text = React.Children.toArray(props.children).join('');
-    const pathname =usePathname();
-    const id = slugify(text);
-    const link = `${pathname}#${id}`; 
-    return (
-      <Link href={link}>
-      <h2 id={id} className="scroll-mt-20 mt-10 pb-1 text-2xl font-semibold tracking-tight" {...props} />
-      </Link>
-    );
-  },
-  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
-    const text = React.Children.toArray(props.children).join('');
-    const pathname =usePathname();
-    const id = slugify(text);
-    const link = `${pathname}#${id}`;
-    return (
-      <Link href={link}>
-        
-        <h3 id={id} className="scroll-mt-20 mt-10 pb-1 text-xl font-semibold tracking-tight" {...props} />
-      </Link>
-    );
-  },
+  h1: H1,
+  h2: H2,
+  h3: H3,
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className="mt-4 text-[17px] text-neutral-600 dark:text-zinc-300 leading-[32px]" {...props} />
   ),
