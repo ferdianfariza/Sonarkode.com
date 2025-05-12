@@ -5,6 +5,9 @@ import React, { useState } from "react";
 import { Check, Copy,ArrowUpRight } from 'lucide-react';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Hash } from 'lucide-react';
 
 const CodeBlock: React.FC<React.HTMLAttributes<HTMLElement> & { className?: string }> = ({
   className,
@@ -35,8 +38,8 @@ const CodeBlock: React.FC<React.HTMLAttributes<HTMLElement> & { className?: stri
   }
 
   return (
-    <div className={`${GeistSans.className} my-6 rounded-sm overflow-hidden border border-ui bg-white dark:bg-zinc-900`}>
-      <div className="flex items-center justify-between px-4 py-2 bg-zinc-50 dark:bg-background border-b border-ui">
+    <div className={`${GeistSans.className} my-6 rounded-sm overflow-hidden border border-ui bg-neutral-200/50 dark:bg-zinc-900`}>
+      <div className="flex items-center justify-between px-4 py-2 bg-zinc-50/50 dark:bg-background border-b border-ui">
         <span className="text-[12px] text-zinc-600 dark:text-zinc-400">
           {className?.replace('language-', '') || 'code'}
         </span>
@@ -70,18 +73,60 @@ const CodeBlock: React.FC<React.HTMLAttributes<HTMLElement> & { className?: stri
   );
 };
 
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '') 
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
+
 const components = {
-  h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h1 className="mt-2 text-2xl font-bold tracking-tight " {...props} />
-  ),
-  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="mt-10 pb-1 text-xl font-semibold tracking-tight " {...props} />
-  ),
-  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="mt-10 pb-1 text-lg font-semibold tracking-tight " {...props} />
-  ),
+  h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const text = React.Children.toArray(props.children).join('');
+    const pathname = usePathname();
+    const id = slugify(text);
+    const link = `${pathname}#${id}`;
+
+    return (
+      <h1 id={id} className="group scroll-mt-20 mt-15 mb-5 text-3xl font-semibold tracking-tight inline-flex items-center gap-2" {...props}>
+        {props.children}
+        <Link
+          href={link}
+          className="opacity-0 group-hover:opacity-100 transition-opacity"
+          aria-label="Anchor link"
+        >
+          <Hash className="w-5 h-5 inline-block align-middle" />
+        </Link>
+      </h1>
+    );
+  },
+  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const text = React.Children.toArray(props.children).join('');
+    const pathname =usePathname();
+    const id = slugify(text);
+    const link = `${pathname}#${id}`; 
+    return (
+      <Link href={link}>
+      <h2 id={id} className="scroll-mt-20 mt-10 pb-1 text-2xl font-semibold tracking-tight" {...props} />
+      </Link>
+    );
+  },
+  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const text = React.Children.toArray(props.children).join('');
+    const pathname =usePathname();
+    const id = slugify(text);
+    const link = `${pathname}#${id}`;
+    return (
+      <Link href={link}>
+        
+        <h3 id={id} className="scroll-mt-20 mt-10 pb-1 text-xl font-semibold tracking-tight" {...props} />
+      </Link>
+    );
+  },
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mt-8 text-[16px] leading-[28px]" {...props} />
+    <p className="mt-4 text-[17px] text-neutral-600 dark:text-zinc-300 leading-[32px]" {...props} />
   ),
 
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
@@ -118,8 +163,9 @@ const components = {
 
   // Blockquote
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => (
-    <blockquote className="mt-6 border-l-2 border-ui pl-4 italic" {...props} />
-  ),
+  <blockquote className="bg-neutral-400/20 dark:bg-zinc-800 px-10 pt-7 pb-10 my-8 md:my-15 [&>p]:text-black dark:[&>p]:text-white dark:text-zinc-200 text-lg [&>p]:text-3xl [&>p]:font-bold [&>p]:leading-10 md tracking-tighter" {...props} />
+),
+
 
   // image
   img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (

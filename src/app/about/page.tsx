@@ -52,9 +52,8 @@ export default function About() {
         <p className="text-center font-mono text-sm mb-6 text-zinc-400">
           Sonarkode goals
         </p>
-        <h1 className="text-4xl sm:text-7xl font-bold tracking-tight uppercase justify-center text-center mb-6 text-animation md:px-20">
-          We share experience and knowledge to make every article is relevant
-          and insightful.
+        <h1 className="text-4xl sm:text-9xl font-semibold tracking-tighter justify-center text-center mb-6 text-animation md:px-20">
+          {"No gatekeeping, just good stuff."}
         </h1>
         <p className="text-center text-sm leading-6 text-zinc-500 mb-40">
           We believe that having a platform to share your thoughts and knowledge

@@ -24,7 +24,9 @@ export default function ArticleMain() {
       <SiteHeader />
       <div className="py-8 mx-4 md:mx-auto max-w-2xl">
         <ArticleHeader />
+        <div className="px-3 md:px-10">
         <Mdx code={post.body.code} />
+        </div>
         <ArticleFooter />
         <ArticleReadMore />
       </div>

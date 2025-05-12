@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import AvatarText from "@/app/components/avatar-text";
 import Link from "next/link";
 import { enUS } from "date-fns/locale";
+import Image from "next/image";
 
 export default function ArticleHeader() {
   const params = useParams();
@@ -27,51 +28,61 @@ export default function ArticleHeader() {
       {/* Header */}
       <div>
         {/* Category */}
-        <p className="font-mono font-semibold uppercase tracking-widest text-blue-500 dark:text-blue-300 text-[13px]">
-          <span className="font-semibold bg-blue-100 dark:bg-blue-900 px-1.5 py-0.5 rounded-sm">
+        <p className="font-mono font-semibold text-center uppercase tracking-widest text-blue-700 dark:text-blue-300 text-[13px]">
+          <span className="font-semibold bg-blue-200 dark:bg-blue-900 px-2 py-0.5 rounded-sm">
             {post.category}
           </span>
         </p>
 
         {/* Title */}
-        <h1 className="mt-4 mb-9 leading-9 md:leading-10 text-[1.9rem] md:text-4xl text-animation font-semibold tracking-tight">
+        <h1 className="mt-6 mb-6 leading-9 text-center md:leading-13 text-[1.9rem] md:text-5xl text-animation font-semibold tracking-tighter">
           {post.title}
         </h1>
 
         {/* Summary */}
-        <p className="font-normal text-[16px] mb-9 leading-6">
-          <span className="font-semibold text-blue-500  dark:text-blue-400">
-            Quick Summary -{">"}{" "}
-          </span>
+        <p className="font-normal text-[17px] mb-6 leading-6 text-center text-neutral-600 dark:text-zinc-300">
           {post.summary}
         </p>
-
         {/* Description */}
-        <div className="flex flex-col-reverse md:flex-row gap-5 md:gap-7 mb-3">
+        <div className="flex gap-5 md:gap-7 place-content-center">
           <div>
-            <p className="text-zinc-500 dark:text-zinc-500 font-normal text-[14px] mb-2">
-              Posted by
-            </p>
+          
             <div className="flex gap-3">
               <AvatarText />
             </div>
           </div>
-          <div className="hidden md:inline">
-            <p className="text-zinc-500 dark:text-zinc-500 font-normal text-[14px] mb-2">
-              Date Uploaded
-            </p>
-            <p className="text-zinc-800 dark:text-zinc-200 font-semibold text-[15px] mb-2 capitaliz py-1">
-              <span>
+          <div className="flex">
+            
+            <div className="text-[15px] py-1">
+              <div className="text-zinc-800 dark:text-zinc-200 font-regular">
+                Uploaded on
+              </div>
+              <div className="text-zinc-800 dark:text-zinc-200 font-semibold">
                 <time dateTime={post.date}>
                   {format(parseISO(post.date), "LLLL d, yyyy", {
                     locale: enUS,
                   })}
                 </time>
-              </span>
-            </p>
+              </div>
+            </div>
           </div>
         </div>
-        <hr className="mt-1 border-ui" />
+
+        {/* Image */}
+     {post.image && (
+  <div className="w-full my-10 md:my-20">
+    <Image
+      src={post.image}
+      alt={post.title}
+      width={1300}
+      height={700}
+      className="w-full h-auto object-cover rounded-md border border-zinc-300 dark:border-zinc-700"
+      priority
+    />
+  </div>
+)}
+
+
       </div>
     </article>
   );

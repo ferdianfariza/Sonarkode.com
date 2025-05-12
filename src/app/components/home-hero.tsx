@@ -62,9 +62,9 @@ export default function HomeHero() {
           <p className="text-[16px] text-neutral-600 dark:text-zinc-400 font-medium leading-6 line-clamp-3 sm:line-clamp-3">
             {heroPost.summary}
           </p>
-          <p className="text-[16px] underline text-neutral-600 dark:text-zinc-400 font-medium leading-6 line-clamp-3 sm:line-clamp-3">
+          <Link href={heroPost.url} className="text-[16px] underline text-neutral-600 dark:text-zinc-400 font-medium leading-6 line-clamp-3 sm:line-clamp-3">
             Read More
-          </p>
+          </Link>
         </div>
       </div>
     </div>

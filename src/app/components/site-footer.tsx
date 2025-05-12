@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function HomeFooter() {
   return (
-    <footer className="py-5 mt-10 w-full border-t border-ui font-mono bg-gradient-to-br from-zinc-100 via-zinc-100/30 to-white dark:from-zinc-800 dark:via-zinc-900 dark:to-black">
+    <footer className="py-5 w-full border-t border-ui font-mono bg-gradient-to-br from-zinc-100 via-zinc-100/30 to-white dark:from-zinc-800 dark:via-zinc-900 dark:to-black">
       <div className="mx-auto w-full max-w-[60rem] px-4 lg:px-0 flex flex-col gap-10 md:flex-row-reverse justify-between ">
         {/* Left Terminal Info */}
         <div className="hidden md:inline text-zinc-500 dark:text-zinc-400 space-y-1">
