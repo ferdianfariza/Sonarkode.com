@@ -44,8 +44,8 @@ export default function ArticleMain() {
               </div>
           </div>
         </div>
-        {/* <ArticleFooter /> */}
-        {/* <ArticleReadMore /> */}
+        <ArticleFooter />
+        <ArticleReadMore />
       </div>
       <HomeFooter />
     </div>
