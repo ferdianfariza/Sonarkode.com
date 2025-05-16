@@ -22,13 +22,30 @@ export default function ArticleMain() {
   return (
     <div>
       <SiteHeader />
-      <div className="py-8 mx-4 md:mx-auto max-w-2xl">
+      <div className="py-8 mx-4 md:mx-auto max-w-[60rem]">
         <ArticleHeader />
-        <div className="px-3 md:px-10">
-        <Mdx code={post.body.code} />
+        <div className="grid md:grid-cols-3 gap-10 ">
+          <div className="col-span-2">
+
+          <Mdx code={post.body.code} />
+          </div>
+          <div className="col-span-1 mt-3 space-y-3">
+              <div className="font-bold border-b py-2 border-ui">
+                [on the page]
+              </div>
+              <div className="font-semibold">
+                On the Page
+              </div>
+              <div className="font-semibold">
+                On the Page
+              </div>
+              <div className="font-semibold">
+                On the Page
+              </div>
+          </div>
         </div>
-        <ArticleFooter />
-        <ArticleReadMore />
+        {/* <ArticleFooter /> */}
+        {/* <ArticleReadMore /> */}
       </div>
       <HomeFooter />
     </div>

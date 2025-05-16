@@ -20,8 +20,16 @@ export default function HomeHero() {
   }
 
   return (
-    <div className="w-full overflow-x-hidden"> 
-      <div className="w-auto flex flex-col md:flex-row-reverse gap-4 lg:gap-7 items-start mb-0 sm:mb-0 py-12 lg:py-20 mx-4 md:mx-0 text-animation border-y border-ui">
+    <div className="w-auto overflow-x-hidden  border-y-2 border-black dark:border-amber-50 mx-3 md:mx-0"> 
+        <div className="flex gap-3 mt-3 md:flex font-black justify-between text-lg dark:text-amber-50 ">
+            {heroPost.category}
+            <div className="flex gap-1 items-center font-normal ">
+              <time dateTime={heroPost.date}>
+                {format(parseISO(heroPost.date), "LLLL d, yyyy", { locale: enUS })}
+              </time>
+            </div>
+          </div>
+      <div className="w-auto flex flex-col md:flex-row-reverse gap-4 lg:gap-7 items-start py-6 lg:py-10  text-animation">
         {heroPost.image && (
           <div className="w-full md:w-1/2 mb-3">
             <Image
@@ -29,7 +37,7 @@ export default function HomeHero() {
               alt={heroPost.title}
               width={1300}
               height={200}
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover border-2 border-black dark:border-amber-50"
               priority
             />
           </div>
@@ -41,30 +49,22 @@ export default function HomeHero() {
             heroPost.image ? "" : "md:col-span-2"
           }`}
         >
-          <div className="gap-3 md:flex font-semibold text-blue-600 dark:text-blue-300 text-[12px]">
-            <div className="flex gap-1 items-center text-[16px] font-normal text-neutral-400 dark:text-zinc-500">
-              Published{" "}
-              <time dateTime={heroPost.date}>
-                {format(parseISO(heroPost.date), "LLLL d, yyyy", {
-                  locale: enUS,
-                })}
-              </time>
-            </div>
-          </div>
+          
 
           <Link
             href={heroPost.url}
-            className="font-semibold dark:text-zinc-100 text-xl md:text-3xl leading-snug md:leading-tight tracking-tight hover:underline text-left line-clamp-3 sm:line-clamp-2 lg:line-clamp-2 hover:text-zinc-400 dark:hover:text-zinc-500 text-animation"
+            className="hover:text-zinc-500 dark:hover:text-zinc-500 text-2xl md:text-3xl font-bold leading-9 md:leading-10 tracking-[-0.020em] text-animation line-clamp-3 hover:underline dark:text-amber-50 decoration-zinc-300 dark:decoration-zinc-600"
           >
             {heroPost.title}
           </Link>
 
-          <p className="text-[16px] text-neutral-600 dark:text-zinc-400 font-medium leading-6 line-clamp-3 sm:line-clamp-3">
+          <p className="text-[16px]  dark:text-amber-50/60 font-medium leading-6 line-clamp-3 sm:line-clamp-3">
             {heroPost.summary}
           </p>
-          <Link href={heroPost.url} className="text-[16px] underline text-neutral-600 dark:text-zinc-400 font-medium leading-6 line-clamp-3 sm:line-clamp-3">
+          <Link href={heroPost.url} className="text-[16px] underline  dark:text-amber-50/70 font-medium leading-6 line-clamp-3 sm:line-clamp-3">
             Read More
           </Link>
+          
         </div>
       </div>
     </div>

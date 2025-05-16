@@ -40,12 +40,12 @@ const CodeBlock: React.FC<React.HTMLAttributes<HTMLElement> & { className?: stri
   return (
     <div className={`${GeistSans.className} my-6 rounded-sm overflow-hidden border border-ui bg-neutral-200/50 dark:bg-zinc-900`}>
       <div className="flex items-center justify-between px-4 py-2 bg-zinc-50/50 dark:bg-background border-b border-ui">
-        <span className="text-[12px] text-zinc-600 dark:text-zinc-400">
+        <span className="text-[14px] font-bold text-zinc-600 dark:text-zinc-400">
           {className?.replace('language-', '') || 'code'}
         </span>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1 text-[12px] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
+          className="flex items-center gap-1 text-[14px] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
           aria-label="Copy code"
         >
           {copied ? (
@@ -63,7 +63,7 @@ const CodeBlock: React.FC<React.HTMLAttributes<HTMLElement> & { className?: stri
       </div>
       <pre className="flex-1">
         <code
-          className={`${GeistMono.className} block text-[12px] leading-normal px-4 py-2 whitespace-pre-wrap break-words text-ui`}
+          className={`${GeistMono.className} block text-[16px] leading-normal font-semibold px-4 py-2 whitespace-pre-wrap break-words text-ui`}
           {...props}
         >
           {children}

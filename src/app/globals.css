@@ -132,7 +132,7 @@ body {
 }
 
 .border-ui {
-  @apply border-zinc-300 dark:border-zinc-700;
+  @apply border-black dark:border-amber-50;
 }
 
 .text-ui {

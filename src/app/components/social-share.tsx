@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Share } from "lucide-react";
 import { FaLinkedinIn, FaTwitter, FaWhatsapp, FaLink } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -33,8 +32,12 @@ export default function SocialShare() {
       {/* Dropdown */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon">
-            <Share className="h-5 w-5" />
+          <Button variant="sonar" size="sonar">
+            {/* <Share className="h-5 w-5" /> */}
+            <p className="font-mono tracking-wide">
+
+            {"[SHARE]"}
+            </p>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>

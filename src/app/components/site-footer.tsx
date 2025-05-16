@@ -1,108 +1,65 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 export default function HomeFooter() {
   return (
-    <footer className="py-5 w-full border-t border-ui font-mono bg-gradient-to-br from-zinc-100 via-zinc-100/30 to-white dark:from-zinc-800 dark:via-zinc-900 dark:to-black">
-      <div className="mx-auto w-full max-w-[60rem] px-4 lg:px-0 flex flex-col gap-10 md:flex-row-reverse justify-between ">
-        {/* Left Terminal Info */}
-        <div className="hidden md:inline text-zinc-500 dark:text-zinc-400 space-y-1">
-          <p className="text-[14px] whitespace-nowra  p">
-            <span>fariza@ferdian </span>
-            <span className="text-yellow-500">SONAR </span>
-            <span className="text-blue-500 dark:text-blue-400">~</span>
-            <span className="text-blue-500 dark:text-green-500 ">
-              {" "}
-              (master){" "}
-            </span>
-            <span className="text-blue-500 dark:text-blue-400 font-bold animate-pulse">
-              ▁
-            </span>
+    <footer>
+      <div className="w-full max-w-[60rem] mx-auto px-3 md:px-0 grid grid-cols-1 md:grid-cols-3">
+        {/* Left Column: SONARKODE */}
+        <div className="flex flex-col gap-6 border-b-2 border-ui pb-4 col-span-2">
+          <h1 className="font-mono text-sm border-y-2 border-black dark:border-white py-3">
+            [SONARKODE]
+          </h1>
+          <p className="font-medium text-sm dark:text-amber-50 pr-0 md:pr-50">
+            Sonarkode was founded in 2024. What began as a small side project to
+            explore modern tech stacks has since evolved into a growing platform.
+            Sonarkode is built for developers who value meaningful communication
+            and continuous learning.
           </p>
         </div>
 
-        {/* Navigation & Socials */}
-        <div className="flex flex-row md:flex-row gap-10">
-          {/* Socials */}
-          <div className="flex flex-col space-y-3 md:space-y-2">
-            <div className="text-[14px] text-zinc-500">Socials /</div>
-            {[
-              {
-                href: "https://www.instagram.com/ferdianfariza/",
-                label: "Instagram",
-              },
-              {
-                href: "https://www.linkedin.com/in/ferdian-nur-fariza-651965273/",
-                label: "LinkedIn",
-              },
-              { href: "https://github.com/ferdianfariza", label: "Github" },
-            ].map((social, index) => {
-              const isLast = index === 2;
-              return (
-                <Link
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group text-[14px] hover:text-blue-500 hover:dark:text-blue-400 flex items-center">
-                  {isLast ? "└──" : "├──"} {social.label}
-                  <span className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500 dark:text-blue-400">
-                    <ArrowUpRight size={15} />
-                  </span>
-                </Link>
-              );
-            })}
+        {/* Right Column: NAVIGATIONS + SOCIALS */}
+        <div className="grid grid-cols-2 md:flex-row justify-end gap-0 border-b-2 border-ui pb-4">
+          {/* NAVIGATIONS */}
+          <div>
+            <h1 className="font-mono text-sm border-b-2 md:border-y-2 border-ui py-3 text-left md:text-right">
+              [NAVIGATIONS]
+            </h1>
+            <ul className="text-left md:text-right">
+              <li className="font-semibold text-xl hover:bg-green-300 dark:hover:text-black px-1">
+                <Link href="/">Home</Link>
+              </li>
+              <li className="font-semibold text-xl hover:bg-green-300 dark:hover:text-black px-1">
+                <Link href="/sponsorship">Sponsorship</Link>
+              </li>
+              <li className="font-semibold text-xl hover:bg-green-300 dark:hover:text-black px-1">
+                <Link href="/about">About</Link>
+              </li>
+            </ul>
           </div>
 
-          {/* Navigation */}
-          <div className="flex flex-col space-y-3 md:space-y-2">
-            <div className="text-[14px] text-zinc-500">Navigations /</div>
-            <Link
-              href="/"
-              className="text-[14px] hover:text-blue-500 hover:dark:text-blue-400">
-              ├── Home
-            </Link>
-            <Link
-              href="/sponsorship"
-              className="text-[14px] hover:text-blue-500 hover:dark:text-blue-400">
-              ├── Sponsorship
-            </Link>
-            <Link
-              href="/about"
-              className="text-[14px] hover:text-blue-500 hover:dark:text-blue-400">
-              └── About{" "}
-            </Link>
+          {/* SOCIALS */}
+          <div>
+            <h1 className="font-mono text-sm border-b-2 md:border-y-2 border-ui py-3 text-left md:text-right">
+              [SOCIALS]
+            </h1>
+            <ul className="text-left md:text-right">
+              <li className="font-semibold text-xl hover:bg-green-300 px-1">
+                <Link href="https://instagram.com" target="_blank">Instagram</Link>
+              </li>
+              <li className="font-semibold text-xl hover:bg-green-300 px-1">
+                <Link href="https://github.com/ferdianfariza/Sonarkode.com" target="_blank">GitHub</Link>
+              </li>
+              <li className="font-semibold text-xl hover:bg-green-300 px-1">
+                <Link href="https://linkedin.com/in/ferdian-nur-fariza-651965273/" target="_blank">LinkedIn</Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
 
-      {/* Bottom Line */}
-      {/* Left Terminal Info */}
-
-      <div className="mt-5 px-4 lg:px-0 border-t border-ui pt-4 mx-auto w-full max-w-[60rem] flex flex-col sm:flex-row justify-between text-[14px] text-zinc-500">
-        <div>
-          Made with {">"}_ by{" "}
-          <span className="hover:text-blue-400">
-            <Link href="https://www.instagram.com/ferdianfariza/">
-              @ferdianfariza
-            </Link>
-          </span>
-        </div>
-        <div className="mb-5">© {new Date().getFullYear()} Sonarkode Blog</div>
-        <div className="inline md:hidden text-zinc-500 dark:text-zinc-400 space-y-1">
-          <p className="text-[14px] whitespace-nowrap">
-            <span>fariza@ferdian </span>
-            <span className="text-yellow-500">SONAR </span>
-            <span className="text-blue-500 dark:text-blue-400">~</span>
-            <span className="text-blue-500 dark:text-green-500 ">
-              {" "}
-              (master){" "}
-            </span>
-            <span className="text-blue-500 dark:text-blue-400 font-bold animate-pulse">
-              ▁
-            </span>
-          </p>
-        </div>
+      {/* Footer Note */}
+      <div className="w-full mx-auto text-center my-5 font-mono text-sm font-bold">
+        © 2025 Sonarkode Blog
       </div>
     </footer>
   );

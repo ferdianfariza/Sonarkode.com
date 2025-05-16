@@ -76,7 +76,7 @@ export default function ArticleHeader() {
       alt={post.title}
       width={1300}
       height={700}
-      className="w-full h-auto object-cover rounded-md border border-zinc-300 dark:border-zinc-700"
+      className="w-full h-auto object-cover border border-zinc-300 dark:border-zinc-700"
       priority
     />
   </div>

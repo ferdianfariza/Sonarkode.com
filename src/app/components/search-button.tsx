@@ -55,19 +55,17 @@ export function Search({ ...props }: DialogProps) {
   }, []);
 
   return (
-    <>
+    <div>
       <Button
-        variant="outline"
+        variant="sonar"
+        size="sonar"
         className={cn(
-          "relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
+          "w-fit justify-start font-normal shadow-none md:w-auto items-center"
         )}
         onClick={() => setOpen(true)}
         {...props}>
-        <span className="hidden lg:inline-flex">Search article...</span>
-        <span className="inline-flex lg:hidden">Search...</span>
-        <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
-          <span className="text-xs">⌘</span>K
-        </kbd>
+        <p className="hidden lg:inline-flex font-mono font-semibold">{"[SEARCH...CTRL+K]"}</p>
+        <p className="inline-flex lg:hidden font-mono font-semibold">{"[SEARCH...]"}</p>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type article title or something..." />
@@ -130,6 +128,6 @@ export function Search({ ...props }: DialogProps) {
           </CommandGroup>
         </CommandList>
       </CommandDialog>
-    </>
+    </div>
   );
 }

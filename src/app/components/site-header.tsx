@@ -7,18 +7,18 @@ import Logo from "./drawer";
 
 export function SiteHeader() {
   return (
-    <header className="w-full top-0 z-50 sticky bg-background/80 backdrop-blur-lg">
+    <header className="w-full top-0 z-50 sticky bg-background ">
       <nav>
-        <div className="mx-auto max-w-[60rem] px-4 lg:px-0">
-          <div className="h-14 flex items-center ">
+        <div className="mx-auto max-w-[60rem] px-3 lg:px-0 ">
+          <div className="h-14 flex items-center border-b-1 md:border-b-2 border-ui">
             <Logo />
-            <div className="flex flex-1 gap-1 items-center md:justify-end">
+            <div className="flex flex-1 gap-5 items-center md:justify-end dark:text-amber-50">
               <div className="flex-1 md:flex-none">
                 <Search />
               </div>
 
-              <div className="flex items-center gap-1">
-                <SocialShare />
+              <div className="flex items-center gap-3">
+                <SocialShare /> 
                 <ThemeSwitcher />
               </div>
             </div>
