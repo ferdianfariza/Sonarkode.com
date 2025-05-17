@@ -12,7 +12,7 @@ export function SiteHeader() {
         <div className="mx-auto max-w-[60rem] px-3 lg:px-0 ">
           <div className="h-14 flex items-center border-b-1 md:border-b-2 border-ui">
             <Logo />
-            <div className="flex flex-1 gap-5 items-center md:justify-end dark:text-amber-50">
+            <div className="flex flex-1 gap-7 items-center md:justify-end dark:text-amber-50">
               <div className="flex-1 md:flex-none">
                 <Search />
               </div>

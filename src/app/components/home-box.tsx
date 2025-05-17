@@ -50,28 +50,30 @@ export default function HomeBox() {
       <div className="flex justify-between gap-5">
         <div className="h-auto flex flex-col">
 
-      <Link
-        href={post.url}
-        className="mt-2 mb-2 hover:text-zinc-500 dark:hover:text-zinc-500 text-2xl md:text-3xl font-semibold md:font-medium leading-9 md:leading-10 tracking-[-0.020em] text-animation line-clamp-3 hover:underline dark:text-amber-50 decoration-zinc-300 dark:decoration-zinc-600">
-        {post.title}
-      </Link>
-      <div className="mb-2 font-medium dark:text-amber-50">
-        {"By "}{post.author}
-      </div>
+          <Link
+            href={post.url}
+            className="mt-2 mb-2 hover:text-zinc-500 dark:hover:text-zinc-500 text-2xl md:text-3xl font-semibold md:font-medium leading-9 md:leading-10 tracking-[-0.020em] text-animation line-clamp-3 hover:underline dark:text-amber-50 decoration-zinc-300 dark:decoration-zinc-600">
+            {post.title}
+          </Link>
+          <div className="mb-2 font-medium dark:text-amber-50">
+            {"By "}{post.author}
           </div>
-       {/* Image */}
-      {post.image && (
-        <div className="w-full md:w-auto h-auto my-2 place-content-center hidden md:inline flex-shrink-0">
-          <Image
-            src={post.image}
-            alt={post.title}
-            width={220}
-            height={140}
-            className="w-full h-auto object-cover border-2 border-black dark:border-amber-50 "
-            priority
-            />
         </div>
-      )}
+          {/* Image */}
+          {post.image && (
+            <div className="w-full md:w-auto h-auto my-2 place-content-center hidden md:inline flex-shrink-0">
+              <Link   href={post.url}>
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={220}
+                  height={140}
+                  className="w-full h-auto object-cover border-2 border-black dark:border-amber-50 hover:rounded-2xl text-animation"
+                  priority
+                  />
+              </Link> 
+            </div>
+          )}
       </div>
     </div>
   </div>

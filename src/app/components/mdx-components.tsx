@@ -8,6 +8,7 @@ import { GeistSans } from 'geist/font/sans';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Hash } from 'lucide-react';
+import { useHeadingContext } from './heading-context';
 
 const CodeBlock: React.FC<React.HTMLAttributes<HTMLElement> & { className?: string }> = ({
   className,
@@ -85,6 +86,11 @@ const H1: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = (props) => {
   const pathname = usePathname();
   const id = slugify(text);
   const link = `${pathname}#${id}`;
+  const { addHeading } = useHeadingContext();
+
+  React.useEffect(() => {
+    addHeading({ id, text, level: "h1" });
+  }, [id, text, addHeading]);
 
   return (
     <h1 id={id} className="group scroll-mt-20 mt-15 mb-5 text-3xl font-semibold tracking-tight inline-flex items-center gap-2" {...props}>
@@ -105,11 +111,23 @@ const H2: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = (props) => {
   const pathname = usePathname();
   const id = slugify(text);
   const link = `${pathname}#${id}`;
+  const { addHeading } = useHeadingContext();
+
+  React.useEffect(() => {
+    addHeading({ id, text, level: "h1" });
+  }, [id, text, addHeading]);
 
   return (
-    <Link href={link}>
-      <h2 id={id} className="scroll-mt-20 mt-10 pb-1 text-2xl font-semibold tracking-tight" {...props} />
-    </Link>
+    <h2 id={id} className="group scroll-mt-20 mt-10 pb-1 text-2xl font-semibold tracking-tight inline-flex items-center gap-2" {...props}>
+      {props.children}
+      <Link
+        href={link}
+        className="opacity-0 group-hover:opacity-100 transition-opacity"
+        aria-label="Anchor link"
+      >
+        <Hash className="w-5 h-5 inline-block align-middle" />
+      </Link>
+    </h2>
   );
 };
 
@@ -118,13 +136,26 @@ const H3: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = (props) => {
   const pathname = usePathname();
   const id = slugify(text);
   const link = `${pathname}#${id}`;
+  const { addHeading } = useHeadingContext();
+
+  React.useEffect(() => {
+    addHeading({ id, text, level: "h1" });
+  }, [id, text, addHeading]);
 
   return (
-    <Link href={link}>
-      <h3 id={id} className="scroll-mt-20 mt-10 pb-1 text-xl font-semibold tracking-tight" {...props} />
-    </Link>
+    <h3 id={id} className="group scroll-mt-20 mt-10 pb-1 text-xl font-semibold tracking-tight inline-flex items-center gap-2" {...props}>
+      {props.children}
+      <Link
+        href={link}
+        className="opacity-0 group-hover:opacity-100 transition-opacity"
+        aria-label="Anchor link"
+      >
+        <Hash className="w-5 h-5 inline-block align-middle" />
+      </Link>
+    </h3>
   );
 };
+
 
 
 const components = {
@@ -169,7 +200,7 @@ const components = {
 
   // Blockquote
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => (
-  <blockquote className="bg-neutral-400/20 dark:bg-zinc-800 px-10 pt-7 pb-10 my-8 md:my-15 [&>p]:text-black dark:[&>p]:text-white dark:text-zinc-200 text-lg [&>p]:text-3xl [&>p]:font-bold [&>p]:leading-10 md tracking-tighter" {...props} />
+  <blockquote className="bg-neutral-400/20 dark:bg-zinc-800 px-6 md:px-10 pt-2 md:pt-7 pb-5 md:pb-10 my-8 md:my-15 [&>p]:text-black dark:[&>p]:text-white dark:text-zinc-200 [&>p]:text-2xl md:[&>p]:text-3xl [&>p]:font-bold [&>p]:leading-10 tracking-tighter" {...props} />
 ),
 
 
