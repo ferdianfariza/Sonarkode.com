@@ -34,7 +34,7 @@ export default function SocialShare() {
         <DropdownMenuTrigger asChild>
           <Button variant="sonar" size="sonar">
             {/* <Share className="h-5 w-5" /> */}
-            <p className="font-mono tracking-wide">
+            <p className="font-mono tracking-wide font-semibold">
 
             {"[SHARE]"}
             </p>

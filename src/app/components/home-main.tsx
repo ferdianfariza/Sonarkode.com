@@ -3,8 +3,15 @@ import { SiteHeader } from "./site-header";
 import HomeHero from "./home-hero";
 import HomeBox from "./home-box";
 import HomeFooter from "./site-footer";
+import Link from 'next/link'
+
 
 export default function HomeMain() {
+
+  const link="/posts/ketuhuhhh";
+  const title="Figma for Developer: Porche Semua yang perlu kamu ketahui";
+  const quote = `“You’ll need to develop.”`;
+
   return (
     <>
       <SiteHeader />
@@ -20,11 +27,15 @@ export default function HomeMain() {
         <HomeBox />
       </div>
       <div className=" mx-auto px-0 md:px-3 lg:px-0 max-w-[60rem]">
-        <div className="py-10 lg:py-15 mx-3 md:mx-0 text-animation">
-          <h1 className="text-left text-4xl sm:text-5xl md:text-6xl lg:text-5xl tracking-tighter font-bold md:font-semibold">{"'Flat fees, fixed timelines and no fuss. We build websites that make sense for your business, budget, and growth stage. With a team that flexes to your needs'"}</h1>  
+        <div className="pt-10 lg:pt-15 mx-3 md:mx-0 text-animation">
+          <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-5xl tracking-tight font-bold md:font-bold dark:text-amber-50">{quote}</h1>  
             
         </div>
-        <div className="my-10 w-auto px-3 md:px-0">READ MORE: </div>
+        <div className="my-10 w-auto px-3 md:px-0 gap-2">
+          <p className="shrink-0 font-bold mb-20 text-center">
+          [READ MORE]: <Link href={link} className=" underline font-normal">{title}</Link>
+          </p>
+        </div>
       
       </div>
       

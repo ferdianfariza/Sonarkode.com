@@ -41,7 +41,7 @@ export default function ArticleReadAlso() {
   }
 
   return (
-    <div className="mt-16 w-full max-w-2xl mx-auto">
+    <div className="mt-16 w-auto mx-auto">
       <div className="p-8 border border-zinc-300 dark:border-zinc-700 rounded-sm text-center bg-zinc-50 dark:bg-zinc-900/30">
         <p className="text-[14px] font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-4">
           Baca Juga

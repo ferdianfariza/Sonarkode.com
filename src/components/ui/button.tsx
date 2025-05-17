@@ -3,6 +3,10 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+const socialClass =
+    "text-animation flex items-center gap-1 px-0 hover:px-1 rounded-sm border-1 border-background " +
+    "hover:border-b-1 hover:border-black hover:border-dashed hover:bg-amber-300 dark:hover:bg-green-800 dark:hover:border-amber-50 " +
+    "active:border-b-1 active:border-black active:border-dashed active:bg-amber-300 dark:active:bg-green-800 dark:active:border-amber-50";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
@@ -20,7 +24,7 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        sonar: "font-mono font-semibold rounded-none hover:border-dashed border-none hover:border-b-2 hover:pb-1 border-black dark:hover:border-amber-50 active:border-b-2 active:pb-1",
+        sonar: "text-animation flex items-center gap-1 px-0 hover:px-1 rounded-sm border-1 border-background hover:border-b-1 hover:border-black hover:border-dashed hover:bg-amber-300 dark:hover:bg-green-800 dark:hover:border-amber-50 active:border-b-1 active:border-black active:border-dashed active:bg-amber-300 dark:active:bg-green-800 dark:active:border-amber-50",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

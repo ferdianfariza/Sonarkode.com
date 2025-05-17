@@ -10,7 +10,7 @@ export function ThemeSwitcher() {
   return (
     
         <Button variant="sonar" size="sonar" onClick={() =>  setTheme(theme === "dark" ? "light" : "dark")}>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 font-semibold">
             <p className="inline dark:hidden">{"[LIGHT]"}</p>
             <p className="hidden dark:inline">{"[DARK]"}</p>
           </div>

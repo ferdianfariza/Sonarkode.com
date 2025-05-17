@@ -27,7 +27,7 @@ const CodeBlock: React.FC<React.HTMLAttributes<HTMLElement> & { className?: stri
 
   if (!isCodeBlock) {
     return (
-      <div className="flex-1 my-6 rounded-sm overflow-hidden border border-ui bg-zinc-50 dark:bg-background">
+      <div className="flex-1 my-6 rounded-sm overflow-hidden border border-neutral-800/20 dark:border-neutral-50/30 bg-zinc-50 dark:bg-background">
         <code
           className={`${GeistMono.className} block text-[12px] leading-normal px-4 py-2 whitespace-pre-wrap break-words text-zinc-800 dark:text-zinc-200`}
           {...props}
@@ -39,8 +39,8 @@ const CodeBlock: React.FC<React.HTMLAttributes<HTMLElement> & { className?: stri
   }
 
   return (
-    <div className={`${GeistSans.className} my-6 rounded-sm overflow-hidden border border-ui bg-neutral-200/50 dark:bg-zinc-900`}>
-      <div className="flex items-center justify-between px-4 py-2 bg-zinc-50/50 dark:bg-background border-b border-ui">
+    <div className={`${GeistSans.className} my-6 rounded-sm overflow-hidden border border-neutral-800/20 dark:border-neutral-50/30 bg-neutral-200/50 dark:bg-zinc-900`}>
+      <div className="flex items-center justify-between px-4 py-2 bg-zinc-50/50 dark:bg-background border-b border-neutral-800/20 dark:border-neutral-50/30">
         <span className="text-[14px] font-bold text-zinc-600 dark:text-zinc-400">
           {className?.replace('language-', '') || 'code'}
         </span>
@@ -207,7 +207,7 @@ const components = {
   // image
   img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
     <img
-      className="my-6 rounded-sm border border-ui max-w-full h-auto" 
+      className="my-6 rounded-sm border border-neutral-800/20 dark:border-neutral-50/30 max-w-full h-auto" 
       alt={props.alt || ""} 
       {...props}
     />
@@ -226,7 +226,7 @@ const components = {
 
   // Horizontal Rule
   hr: (props: React.HTMLAttributes<HTMLHRElement>) => (
-    <hr className="mt-8 border-ui" {...props} />
+    <hr className="mt-8 border-neutral-800/20 dark:border-neutral-50/30" {...props} />
   ),
 
   code: CodeBlock,

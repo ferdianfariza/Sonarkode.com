@@ -33,7 +33,7 @@ export default function HomeBox() {
       {structuredPosts.map((post) => (
         <div
   key={post._id}
-  className="w-full flex flex-col md:flex-row justify-between gap-10 py-8">
+  className="w-full flex flex-col md:flex-row justify-between gap-10 py-10">
   
   {/* Text Content */}
   <div className="flex-1 flex flex-col space-y-3 justify-center ">
@@ -46,15 +46,15 @@ export default function HomeBox() {
       </div>
     </div>
 
-    <div className="w-auto border-y-2 border-black dark:border-amber-50/50 py-2 ">
+    <Link href={post.url} className="group text-animation w-auto border-y-1 border-black dark:border-amber-50/50 py-2 hover:bg-amber-300 dark:hover:bg-green-800 hover:px-5 hover:rounded-2xl hover:border-x">
       <div className="flex justify-between gap-5">
         <div className="h-auto flex flex-col">
 
-          <Link
+          <a
             href={post.url}
-            className="mt-2 mb-2 hover:text-zinc-500 dark:hover:text-zinc-500 text-2xl md:text-3xl font-semibold md:font-medium leading-9 md:leading-10 tracking-[-0.020em] text-animation line-clamp-3 hover:underline dark:text-amber-50 decoration-zinc-300 dark:decoration-zinc-600">
+            className="mt-2 mb-2  text-2xl md:text-3xl font-semibold md:font-medium leading-9 md:leading-10 tracking-[-0.020em] text-animation line-clamp-3 dark:text-amber-50 decoration-zinc-300 dark:decoration-zinc-600">
             {post.title}
-          </Link>
+          </a>
           <div className="mb-2 font-medium dark:text-amber-50">
             {"By "}{post.author}
           </div>
@@ -68,14 +68,14 @@ export default function HomeBox() {
                   alt={post.title}
                   width={220}
                   height={140}
-                  className="w-full h-auto object-cover border-2 border-black dark:border-amber-50 hover:rounded-2xl text-animation"
+                  className="w-full h-auto object-cover border-1 border-black dark:border-amber-50 group-hover:rounded-md text-animation"
                   priority
                   />
               </Link> 
             </div>
           )}
       </div>
-    </div>
+    </Link>
   </div>
 </div>
 
