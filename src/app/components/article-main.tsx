@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react"; // ✅ required for useState
+import { useState } from "react"; 
 import Mdx from "@/app/components/mdx-components";
 import { allPosts } from "contentlayer/generated";
 import { useParams } from "next/navigation";
@@ -11,13 +11,16 @@ import HomeFooter from "@/app/components/site-footer";
 import { HeadingContext } from "@/app/components/heading-context"; // ✅ import your context
 
 export default function ArticleMain() {
-  const [headings, setHeadings] = useState([]);
-  const addHeading = (heading) => {
+  type Heading = { id: string; text: string };
+
+  const [headings, setHeadings] = useState<Heading[]>([]); // ✅ correct type
+  const addHeading = (heading: Heading) => { // ✅ correct parameter type
     setHeadings((prev) => {
-      if (prev.some((h) => h.id === heading.id)) return prev; // avoid duplicates
+      if (prev.some((h) => h.id === heading.id)) return prev;
       return [...prev, heading];
     });
   };
+
 
   const params = useParams();
   const slug = params.slug as string;
