@@ -17,7 +17,7 @@ export default function HomeFooter() {
       <div className="w-full max-w-[60rem] mx-auto px-3 md:px-0 grid grid-cols-1 md:grid-cols-3">
         {/* Left Column: SONARKODE */}
         <div className="flex flex-col gap-6 border-b-1 border-ui pb-7 col-span-2">
-          <h1 className="font-mono text-sm border-y-1 border-black font-bold dark:border-white py-3 dark:text-amber-50">
+          <h1 className="font-mono text-sm border-y-1 border-ui font-bold  py-3 dark:text-amber-50">
             [SONARKODE]
           </h1>
           <p className="font-normal text-sm dark:text-amber-50 pr-0 md:pr-50 leading-6">

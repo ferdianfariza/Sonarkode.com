@@ -41,20 +41,20 @@ export default function ArticleReadAlso() {
   }
 
   return (
-    <div className="mt-16 w-auto mx-auto">
-      <div className="p-8 border border-zinc-300 dark:border-zinc-700 rounded-sm text-center bg-zinc-50 dark:bg-zinc-900/30">
-        <p className="text-[14px] font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-4">
-          Baca Juga
+    <div className="mt-16 w-full mx-auto">
+      <div className="py-2">
+        <p className="text-sm border-y border-ui py-3 font-mono font-bold text-zinc-800 dark:text-zinc-400 uppercase mb-4">
+          [article]
         </p>
-        <h3 className="text-xl font-bold mb-3 tracking-tight text-zinc-900 dark:text-zinc-100">
+        <h3 className="text-2xl font-semibold mb-3 tracking-tight text-zinc-900 dark:text-zinc-100">
           {suggestedPost.title}
         </h3>
-        <p className="text-[16px] text-zinc-600 dark:text-zinc-300 max-w-xl mx-auto mb-6">
+        <p className="text-[16px] text-zinc-600 dark:text-zinc-300 mx-auto mb-6">
           {suggestedPost.summary}
         </p>
         <Link
           href={suggestedPost.url}
-          className="inline-flex items-center px-3 py-2 bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 rounded-sm text-[16px] font-medium hover:bg-zinc-700 dark:hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 dark:focus:ring-zinc-400 transition-colors">
+          className="flex items-center px-3 py-2 bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 text-[16px] font-medium hover:bg-zinc-700 dark:hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 dark:focus:ring-zinc-400 transition-colors">
           Mulai Baca
           <ArrowRight className="ml-2 w-4 h-4" />
         </Link>

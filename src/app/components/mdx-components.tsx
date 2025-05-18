@@ -64,7 +64,7 @@ const CodeBlock: React.FC<React.HTMLAttributes<HTMLElement> & { className?: stri
       </div>
       <pre className="flex-1">
         <code
-          className={`${GeistMono.className} block text-[16px] leading-normal font-semibold px-4 py-2 whitespace-pre-wrap break-words text-ui`}
+          className={`${GeistMono.className} block text-[14px] leading-normal font-medium px-4 py-2 whitespace-pre-wrap break-words text-ui`}
           {...props}
         >
           {children}
@@ -163,7 +163,7 @@ const components = {
   h2: H2,
   h3: H3,
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mt-4 text-[17px] text-neutral-600 dark:text-zinc-300 leading-[32px]" {...props} />
+    <p className="mt-4 text-[17px] text-neutral-700 dark:text-zinc-300 leading-[32px]" {...props} />
   ),
 
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {

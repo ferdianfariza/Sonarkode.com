@@ -6,6 +6,8 @@ import AvatarText from "@/app/components/avatar-text";
 import Link from "next/link";
 import { enUS } from "date-fns/locale";
 import Image from "next/image";
+import { Hourglass } from 'lucide-react';
+
 
 export default function ArticleHeader() {
   const params = useParams();
@@ -20,63 +22,60 @@ export default function ArticleHeader() {
 
   return (
     <article>
-      {/* Home button */}
-      <Link href="/" className="block mb-15 text-xs font-normal text-zinc-400">
-        {"<"}- Back to Home
-      </Link>
 
+        
       {/* Header */}
       <div>
         {/* Category */}
-        <p className="font-mono font-semibold text-center uppercase tracking-widest text-blue-700 dark:text-blue-300 text-[13px]">
-          <span className="font-semibold bg-blue-200 dark:bg-blue-900 px-2 py-0.5 rounded-sm">
+        <Link href="/" className="w-auto h-auto font-mono font-semibold hover:underline active:underline">[{"<-"}home]</Link>
+        <div className="mt-10 flex flex-col md:flex-row w-full mx-auto place-content-center text-left  text-black dark:text-amber-50 gap-3 items-center">
+          <span className="uppercase h-fit text-[14px] tracking-widest font-medium font-mono bg-amber-300/50 border border-dashed border-black dark:border-amber-50/30 dark:bg-green-800/50 px-2 rounded-xs">
             {post.category}
           </span>
-        </p>
+          <span className="text-[15px] py-1">
+              <div className="text-zinc-800 dark:text-zinc-200 font-normal font-sans">
+                {"Published "}
+                 <time dateTime={post.date}>
+                  {format(parseISO(post.date), "LLL d, yyyy", {
+                    locale: enUS,
+                  })}
+                </time>
+              </div>
+            </span>
+        </div>
 
         {/* Title */}
-        <h1 className="mt-6 mb-6 leading-9 text-center md:leading-13 text-[1.9rem] md:text-5xl text-animation font-semibold tracking-tighter">
+        <h1 className="dark:text-amber-50 mt-6 mb-4 leading-11 text-center md:leading-13 text-4xl md:text-5xl text-animation font-semibold tracking-tighter md:px-15">
           {post.title}
         </h1>
 
         {/* Summary */}
-        <p className="font-normal text-[17px] mb-6 leading-6 text-center text-neutral-600 dark:text-zinc-300">
+        <p className="font-normal text-[17px] mb-4 leading-7 md:leading-6 line-clamp-3 text-center text-neutral-700 dark:text-zinc-300 md:px-50">
           {post.summary}
         </p>
         {/* Description */}
-        <div className="flex gap-5 md:gap-7 place-content-center">
+        <div className="flex gap-5 md:gap-4 place-content-center">
           <div>
           
             <div className="flex gap-3">
               <AvatarText />
             </div>
           </div>
-          <div className="flex">
-            
-            <div className="text-[15px] py-1">
-              <div className="text-zinc-800 dark:text-zinc-200 font-regular">
-                Uploaded on
-              </div>
-              <div className="text-zinc-800 dark:text-zinc-200 font-semibold">
-                <time dateTime={post.date}>
-                  {format(parseISO(post.date), "LLLL d, yyyy", {
-                    locale: enUS,
-                  })}
-                </time>
-              </div>
-            </div>
+          <div className="flex text-[14px] text-neutral-700/70 dark:text-amber-50/50 gap-1 items-center">
+              <Hourglass size="20"/>
+              {post.readtime}
           </div>
         </div>
 
         {/* Image */}
      {post.image && (
-  <div className="w-full my-10 md:my-20">
+  <div className="w-full my-10 md:my-10">
     <Image
       src={post.image}
       alt={post.title}
       width={1300}
       height={700}
-      className="w-full h-auto object-cover border border-zinc-300 dark:border-zinc-700"
+      className="w-full h-auto object-cover border border-zinc-300 dark:border-zinc-700 rounded-md"
       priority
     />
   </div>

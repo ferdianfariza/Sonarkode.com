@@ -50,11 +50,10 @@ export default function HomeBox() {
       <div className="flex justify-between gap-5">
         <div className="h-auto flex flex-col">
 
-          <a
-            href={post.url}
+          <div
             className="mt-2 mb-2  text-2xl md:text-3xl font-semibold md:font-medium leading-9 md:leading-10 tracking-[-0.020em] text-animation line-clamp-3 dark:text-amber-50 decoration-zinc-300 dark:decoration-zinc-600">
             {post.title}
-          </a>
+          </div>
           <div className="mb-2 font-medium dark:text-amber-50">
             {"By "}{post.author}
           </div>
@@ -62,7 +61,7 @@ export default function HomeBox() {
           {/* Image */}
           {post.image && (
             <div className="w-full md:w-auto h-auto my-2 place-content-center hidden md:inline flex-shrink-0">
-              <Link   href={post.url}>
+              <div>
                 <Image
                   src={post.image}
                   alt={post.title}
@@ -71,7 +70,7 @@ export default function HomeBox() {
                   className="w-full h-auto object-cover border-1 border-black dark:border-amber-50 group-hover:rounded-md text-animation"
                   priority
                   />
-              </Link> 
+              </div> 
             </div>
           )}
       </div>

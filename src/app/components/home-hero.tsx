@@ -20,7 +20,7 @@ export default function HomeHero() {
   }
 
   return (
-    <div className="w-auto overflow-x-hidden  border-y-1 border-black dark:border-amber-50 mx-3 md:mx-0"> 
+    <div className="w-auto overflow-x-hidden  border-y-1 border-ui mx-3 md:mx-0"> 
         <div className="flex gap-3 mt-3 md:flex font-black justify-between text-lg dark:text-amber-50 ">
             {heroPost.category}
             <div className="flex gap-1 items-center font-normal ">
