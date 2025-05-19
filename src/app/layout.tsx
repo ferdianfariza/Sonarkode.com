@@ -16,8 +16,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sonarkode - One stop place to read and learn",
-  description: "Learning something is hard. Sonarkode blog site make it easier.",
+  title: {
+    template: '%s — Sonarkode',
+    default: 'Sonarkode — One stop place to read and learn',
+  },
+  description: 'Learning something is hard. Sonarkode blog site make it easier.',
+  metadataBase: new URL('https://sonarkode.blog'),
 };
 
 export default function RootLayout({

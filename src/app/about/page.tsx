@@ -1,10 +1,13 @@
-"use client";
-
 import { SiteHeader } from "../components/site-header";
 import HomeFooter from "../components/site-footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'About',
+};
 
 
 
