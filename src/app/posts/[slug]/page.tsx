@@ -2,12 +2,8 @@ import ArticleMain from '@/app/components/article-main';
 import { allPosts } from 'contentlayer/generated';
 import type { Metadata } from "next";
 
-type Props = {
-  params: { slug: string };
-};
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {  
   const post = allPosts.find(p => p._raw.flattenedPath === `posts/${params.slug}`);
 
   if (!post) {
