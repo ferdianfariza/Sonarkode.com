@@ -1,5 +1,5 @@
 import ArticleMain from '@/app/components/article-main';
-import { allPosts, Post } from 'contentlayer/generated'; // Assuming 'Post' is the generated type for a post
+import { allPosts } from 'contentlayer/generated'; // Assuming 'Post' is the generated type for a post
 import type { Metadata } from "next";
 import { notFound } from 'next/navigation'; // For handling 404
 
