@@ -7,7 +7,9 @@ import ArticleMain  from '@/app/components/article-main';
 
 type Params = Promise<{ slug: string }>
  
-export async function generateMetadata({ params }: { params: Params }) {
+export async function generateMetadata(
+  { params }: { params: Params }
+): Promise<Metadata> {
   const { slug } = await params;
   const post = allPosts.find(p => p._raw.flattenedPath === slug);
 
