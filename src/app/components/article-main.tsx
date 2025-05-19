@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react"; 
 import Mdx from "@/app/components/mdx-components";
-import { type Post, allPosts } from "contentlayer/generated";
-import { useParams } from "next/navigation";
+import { type Post } from "contentlayer/generated";
 import { SiteHeader } from "@/app/components/site-header";
 import ArticleFooter from "@/app/components/article-footer";
 import ArticleReadMore from "@/app/components/article-readmore";
