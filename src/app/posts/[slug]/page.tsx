@@ -1,56 +1,50 @@
-import ArticleMain from '@/app/components/article-main';
-import { allPosts } from 'contentlayer/generated';
-import { notFound } from 'next/navigation';
-import type { Metadata, ResolvingMetadata } from 'next'
+import ArticleMain from '@/app/components/article-main'
+import { allPosts } from 'contentlayer/generated'
+import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 
 type Props = {
   params: { slug: string }
-  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  const post = allPosts.find(p => p._raw.flattenedPath === `posts/${params.slug}`);
-  
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = allPosts.find(p => p._raw.flattenedPath === `posts/${params.slug}`)
+
   if (!post) {
-    return {};
+    return {}
   }
 
   return {
-    title: `${post.title}`,
-    description: post.summary || (await parent).description,
+    title: post.title,
+    description: post.summary,
     authors: post.author ? [{ name: post.author }] : undefined,
     keywords: post.category,
     openGraph: {
-      title: `${post.title}`,
+      title: post.title,
       url: `https://sonarkode.blog/posts/${params.slug}`,
-      type: "article",
+      type: 'article',
       authors: post.author ? [post.author] : undefined,
-      // images: post.image ? [post.image] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title: `${post.title} | Sonarkode`,
       creator: '@ferdianfarizaa',
-      // images: post.image ? [post.image] : undefined,
     },
-  };
+  }
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<Props['params'][]> {
   return allPosts.map((post) => ({
     slug: post._raw.flattenedPath.replace('posts/', ''),
-  }));
+  }))
 }
 
 export default function PostPage({ params }: Props) {
-  const post = allPosts.find(p => p._raw.flattenedPath === `posts/${params.slug}`);
+  const post = allPosts.find(p => p._raw.flattenedPath === `posts/${params.slug}`)
 
   if (!post) {
-    notFound();
+    notFound()
   }
 
-  return <ArticleMain post={post} />;
+  return <ArticleMain post={post} />
 }
