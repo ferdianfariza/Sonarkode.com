@@ -16,7 +16,7 @@ export function SiteHeader() {
               <div className="flex-1 md:flex-none">
                 <Search />
               </div>
-
+              
               <div className="flex items-center gap-3">
                 <SocialShare /> 
                 <ThemeSwitcher />

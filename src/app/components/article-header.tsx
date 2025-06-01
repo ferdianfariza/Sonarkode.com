@@ -27,21 +27,12 @@ export default function ArticleHeader() {
       {/* Header */}
       <div>
         {/* Category */}
-        <Link href="/" className="w-auto h-auto font-mono font-semibold hover:underline active:underline">[{"<-"}home]</Link>
+        <Link href="/" className="w-auto h-auto font-mono font-semibold hover:underline active:underline">{"<-"}home</Link>
         <div className="mt-10 flex flex-col md:flex-row w-full mx-auto place-content-center text-left  text-black dark:text-amber-50 gap-3 items-center">
           <span className="uppercase h-fit text-[14px] tracking-widest font-medium font-mono bg-amber-300/50 border border-dashed border-black dark:border-amber-50/30 dark:bg-green-800/50 px-2 rounded-xs">
             {post.category}
           </span>
-          <span className="text-[15px] py-1">
-              <div className="text-zinc-800 dark:text-zinc-200 font-normal font-sans">
-                {"Published "}
-                 <time dateTime={post.date}>
-                  {format(parseISO(post.date), "LLL d, yyyy", {
-                    locale: enUS,
-                  })}
-                </time>
-              </div>
-            </span>
+          
         </div>
 
         {/* Title */}
@@ -55,32 +46,40 @@ export default function ArticleHeader() {
         </p>
         {/* Description */}
         <div className="flex gap-5 md:gap-4 place-content-center">
-          <div>
-          
-            <div className="flex gap-3">
-              <AvatarText />
-            </div>
-          </div>
-          <div className="flex text-[14px] text-neutral-700/70 dark:text-amber-50/50 gap-1 items-center">
-              <Hourglass size="20"/>
-              {post.readtime}
-          </div>
+          <span className="text-[15px] py-1">
+              <div className="text-zinc-800 dark:text-zinc-200 font-normal font-sans">
+                {"Published "}
+                 <time dateTime={post.date}>
+                  {format(parseISO(post.date), "LLL d, yyyy", {
+                    locale: enUS,
+                  })}
+                </time>
+              </div>
+            </span>
         </div>
 
         {/* Image */}
      {post.image && (
-  <div className="w-full my-10 md:my-10">
-    <Image
-      src={post.image}
-      alt={post.title}
-      width={1300}
-      height={700}
-      className="w-full h-auto object-cover border border-zinc-300 dark:border-zinc-700 rounded-md"
-      priority
-    />
-  </div>
-)}
-
+        <div className="w-full my-10 md:my-10">
+          <Image
+            src={post.image}
+            alt={post.title}
+            width={1300}
+            height={700}
+            className="w-full h-auto object-cover border border-zinc-300 dark:border-zinc-700 rounded-md"
+            priority
+          />
+        </div>
+      )}
+      <div className="flex mx-auto place-items-center w-full items-center justify-center gap-5 mb-8">
+        <div className="flex gap-3">
+          <AvatarText />
+        </div>
+        <div className="flex text-[14px] text-neutral-700/70 dark:text-amber-50/50 gap-1 items-center">
+          <Hourglass size="20"/>
+          {post.readtime}
+        </div>
+      </div>
 
       </div>
     </article>

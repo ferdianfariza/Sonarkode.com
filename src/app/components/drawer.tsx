@@ -16,15 +16,9 @@ import { HiOutlineBars2 } from "react-icons/hi2";
 import { Button } from "@/components/ui/button";
 
 
-
 export default function Logo() {
   return (
     <div className="flex items-center justify-start gap-5">
-      {/* <div className="hidden md:inline-flex lg:inline-flex font-mono font-semibold rounded-none">
-        <Link href="/">
-          <Icons.icon className="h-auto w-8 mr-1 text-blue-500 bg-neutral-200/70 dark:bg-neutral-800/50 border border-dashed border-black hover:border-solid p-2 backdrop-blur-3xl" />
-        </Link>
-      </div> */}
       <Button
         asChild
         variant="sonar"

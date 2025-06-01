@@ -67,7 +67,7 @@ export default function ArticleReadMore() {
         </p>
         <Link
           href={suggestedPost.url} // Ensure post.url is the correct relative or absolute path
-          className="inline-flex items-center px-3 py-2 bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 text-[16px] font-medium hover:bg-zinc-700 dark:hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 dark:focus:ring-zinc-400 transition-colors rounded-md" // Added inline-flex and rounded-md for better button appearance
+          className="flex mt-5 items-center px-3 py-2 bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 text-[16px] font-medium hover:bg-zinc-700 dark:hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 dark:focus:ring-zinc-400 transition-colors" // Added inline-flex and rounded-md for better button appearance
         >
           Mulai Baca
           <ArrowRight className="ml-2 w-4 h-4" />

@@ -51,15 +51,8 @@ export default function ArticleMain({ post }: MainProps) {
               </a>
             ))}
           </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:mx-5 lg:mx-0">
-          <div className="col-span-2">
-            <HeadingContext.Provider value={{ addHeading }}>
-              <Mdx code={post.body.code} />
-            </HeadingContext.Provider>
-            <ArticleFooter />
-            <ArticleReadMore />
-          </div>
-         <div
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-15 md:mx-5 lg:mx-0">
+          {/* <div
             className={`hidden md:inline col-span-1 mt-3 space-y-3 sticky self-start ${stickyTopClass}`}
             style={{
             }}
@@ -69,11 +62,18 @@ export default function ArticleMain({ post }: MainProps) {
               <a
                 key={i}
                 href={`#${h.id}`}
-                className="block border-b text-neutral-600 dark:text-zinc-300 text-[17px] active:font-semibold hover:font-semibold text-animation hover:text-neutral-800 dark:hover:text-zinc-100"
+                className="block text-neutral-600 dark:text-zinc-300 text-sm  active:font-semibold hover:font-semibold text-animation hover:text-neutral-800 dark:hover:text-zinc-100"
               >
                 {h.text}
               </a>
             ))}
+          </div> */}
+          <div className="col-span-4 place-items-center mx-auto">
+            <HeadingContext.Provider value={{ addHeading }}>
+              <Mdx code={post.body.code} />
+            </HeadingContext.Provider>
+            <ArticleFooter />
+            <ArticleReadMore />
           </div>
         </div>
       </div>

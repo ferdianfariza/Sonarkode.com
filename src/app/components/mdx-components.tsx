@@ -93,7 +93,7 @@ const H1: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = (props) => {
   }, [id, text, addHeading]);
 
   return (
-    <h1 id={id} className="group scroll-mt-20 mt-15 mb-5 text-3xl font-semibold tracking-tight inline-flex items-center gap-2" {...props}>
+    <h1 id={id} className="group scroll-mt-20 mt-15 text-3xl font-semibold tracking-tight inline-flex items-center gap-2" {...props}>
       {props.children}
       <Link
         href={link}
