@@ -1,51 +1,11 @@
 import { SiteHeader } from "../components/site-header";
 import HomeFooter from "../components/site-footer";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: 'About',
 };
-
-
-
-const profileData = [
-  {
-    name: "Sonarkode",
-    title: "Blogsite",
-    image: "sonar.png",
-    description:
-      "Sonarkode was founded in 2024. What began as a small side project to explore modern tech stacks like Next.js has since evolved into a growing platform for sharing ideas, insights, and inspiration. Inspired by platforms like Daily.dev, Sonarkode is built for developers who value meaningful communication and continuous learning.",
-  },
-  {
-    name: "Ferdian Fariza",
-    title: "Author",
-    image: "https://github.com/ferdianfariza.png",
-    description:
-      "Hello again, I am undergraduate student of Informatics Engineering with main areas of interest includes socio-technological change, web technology, machine learning and quantitative research. Outside of academic, I love building prototypes and sharing thought. Currently I maintain this website to keep sharing thought and experience through this computer journey.",
-  },
-];
-
-const workData = [
-  {
-    title: "Work with Sonar",
-    description: "Sponsorships, partnerships, and collaborations are welcome!",
-    links: [
-      { label: "Sponsor Here", href: "/sponsorship" },
-      { label: "See Analytics", href: "/sponsorship" },
-    ],
-  },
-  {
-    title: "Work with Ferdian",
-    description: "Let's connect and explore opportunities to work together!",
-    links: [
-      { label: "Work With Me", href: "/sponsorship" },
-      { label: "See CV", href: "/sponsorship" },
-    ],
-  },
-];
 
 export default function About() {
   return (
