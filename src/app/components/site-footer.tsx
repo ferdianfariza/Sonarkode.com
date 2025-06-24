@@ -14,7 +14,7 @@ export default function HomeFooter() {
     "active:border-b-1 active:border-black active:border-dashed active:bg-amber-300 dark:active:bg-green-800 dark:active:border-amber-50";
   return (
     <footer>
-      <div className="w-full max-w-[60rem] mx-auto px-3 md:px-0 grid grid-cols-1 md:grid-cols-3">
+      <div className="w-full max-w-[70rem] mx-auto px-3 md:px-0 grid grid-cols-1 md:grid-cols-3">
         {/* Left Column: SONARKODE */}
         <div className="flex flex-col gap-6 border-b-1 border-ui pb-7 col-span-2">
           <h1 className="font-mono text-sm border-y-1 border-ui font-bold  py-3 dark:text-amber-50">

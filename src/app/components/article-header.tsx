@@ -8,7 +8,7 @@ import { enUS } from "date-fns/locale";
 import Image from "next/image";
 import { Hourglass } from 'lucide-react';
 
-
+  
 export default function ArticleHeader() {
   const params = useParams();
   const slug = params.slug as string;

@@ -53,7 +53,7 @@ export default function About() {
                 {"I am undergraduate student of Informatics Engineering with main areas of interest includes socio-technological change, web technology, machine learning and quantitative research."}
                 </p>
       
-              </div>
+              </div>  
               {/* <div className="col-span-1 space-y-4">
                         <Link href="/" className="flex w-full bg-amber-400/50 dark:bg-green-800/50 px-auto justify-center">asd</Link>
                 <Link href="/" className="flex w-full bg-amber-400/50 dark:bg-green-800/50">asd</Link>

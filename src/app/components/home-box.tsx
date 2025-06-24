@@ -1,22 +1,20 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { allPosts } from "contentlayer/generated";
 import { compareDesc, format, parseISO } from "date-fns";
-import { enUS } from "date-fns/locale";
-import Image from "next/image";
 
 type PostWithLayout = (typeof allPosts)[number] & { layout: "text" };
 
 export default function HomeBox() {
-  const [structuredPosts, setStructuredPosts] = useState<
-    PostWithLayout[] | null
-  >(null);
+  const [structuredPosts, setStructuredPosts] = useState<PostWithLayout[] | null>(null);
 
   useEffect(() => {
     const posts = allPosts
       .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-      .slice(1);
+      .slice(0);
 
     const result: PostWithLayout[] = posts.map((post) => ({
       ...post,
@@ -29,56 +27,99 @@ export default function HomeBox() {
   if (!structuredPosts) return null;
 
   return (
-    <div className="mx-auto grid grid-cols-1 place-items-center text-animation mt-10">
-      {structuredPosts.map((post) => (
-        <div
-  key={post._id}
-  className="w-full flex flex-col md:flex-row justify-between gap-10 py-10">
-  
-  {/* Text Content */}
-  <div className="flex-1 flex flex-col space-y-3 justify-center ">
-    <div className="flex gap-3 md:flex font-black justify-between text-lg dark:text-amber-50 ">
-      {post.category}
-      <div className="flex gap-1 items-center font-normal  ">
-        <time dateTime={post.date}>
-          {format(parseISO(post.date), "LLLL d, yyyy", { locale: enUS })}
-        </time>
-      </div>
-    </div>
+    <div className="mx-auto mt-10 grid grid-cols-1 place-items-center text-animation">
 
-    <Link href={post.url} className="group text-animation w-auto border-y-1 border-black dark:border-amber-50/50 py-2 hover:bg-amber-300 dark:hover:bg-green-800 hover:px-5 hover:rounded-2xl hover:border-x">
-      <div className="flex justify-between gap-5">
-        <div className="h-auto flex flex-col">
-
-          <div
-            className="mt-2 mb-2  text-2xl md:text-3xl font-semibold md:font-medium leading-9 md:leading-10 tracking-[-0.020em] text-animation line-clamp-3 dark:text-amber-50 decoration-zinc-300 dark:decoration-zinc-600">
-            {post.title}
-          </div>
-          <div className="mb-2 font-medium dark:text-amber-50">
-            {"By "}{post.author}
+        {/* Title and Category */}
+        <div className="flex md:hidden w-full border-b border-ui">
+          <div className="pb-2 font-mono text-xs">
+            / TITLEs
           </div>
         </div>
-          {/* Image */}
-          {post.image && (
-            <div className="w-full md:w-auto h-auto my-2 place-content-center hidden md:inline flex-shrink-0">
-              <div>
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  width={220}
-                  height={140}
-                  className="w-full h-auto object-cover border-1 border-black dark:border-amber-50 group-hover:rounded-md text-animation"
-                  priority
-                  />
-              </div> 
-            </div>
-          )}
-      </div>
-    </Link>
-  </div>
-</div>
 
-      ))}
+      <div className="hidden md:grid w-full grid-cols-8 gap-8 ">
+
+        {/* Date */}
+        <div className="col-span-1 w-full space-y-5">
+          <div className="border-b border-ui pb-2 font-mono text-xs">
+            / DATE
+          </div>
+        </div>
+
+        {/* Image */}
+        <div className="hidden md:inline col-span-2 h-full w-full space-y-5">
+          <div className="border-b border-ui pb-2 font-mono text-xs">
+            / IMAGE
+          </div>
+        </div>
+
+        {/* Title and Category */}
+        <div className="hidden md:inline md:col-span-5 w-full space-y-5">
+          <div className="border-b border-ui pb-2 font-mono text-xs">
+            / TITLE
+          </div>
+        </div>
+
+      </div>
+
+     {structuredPosts.map((post) => (
+      <div
+        key={post._id}
+        className="flex w-full flex-col border-b border-dashed border-ui group hover:bg-amber-200/20 dark:hover:bg-green-800/50"
+      >
+        <Link href={post.url} className="grid w-full grid-cols-1 gap-8 py-7 md:grid-cols-8">
+
+          {/* Date */}
+          <div className="hidden md:block col-span-1 w-full space-y-5">
+            <div className="flex font-mono text-sm">
+              <time dateTime={post.date}>
+                {format(parseISO(post.date), "yyyy.M.d")}
+              </time>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="hidden md:block col-span-2 space-y-5">
+            <div className="w-full border border-ui bg-amber-200/20 p-1 dark:bg-green-800/50 group-hover:bg-amber-400">
+              <div className="flex items-center justify-between">
+                <p className="font-mono text-xs mb-1">[ FIG. 31 ]</p>
+                <p className="font-mono text-xs mb-1">[ X ]</p>
+              </div>
+              {post.image && (
+                <div className="mb-2 h-auto place-content-center">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    width={220}
+                    height={140}
+                    className="text-animation w-full border border-black object-cover dark:border-amber-50"
+                    priority
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+              
+          
+
+          {/* Title and Category */}
+          <div className="col-span-5 w-full space-y-3">
+            <h1 className="text-2xl font-medium tracking-tight">{post.title}</h1>
+            <div className="inline-block border-dashed border border-ui rounded-sm px-1 py-0.5 font-mono text-xs">
+              {post.category}
+            </div>
+            <div className="inline-block rounded-sm py-0.5 text-xs">
+              {post.summary}
+            </div>
+            <div className="inline-block rounded-sm py-0.5 text-xs">
+              Read more...
+            </div>
+
+          </div>
+
+        </Link>
+      </div>
+    ))}
+
     </div>
   );
 }
